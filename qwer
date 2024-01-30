@@ -13,7 +13,7 @@ function inputPassword()
 end
 
 function validatePassword(password)
-    local savedPassword = "dang"
+    local savedPassword = "ez"
 
     if password:match("[^%w]") then
         return false
