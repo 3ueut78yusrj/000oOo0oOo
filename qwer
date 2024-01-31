@@ -13,7 +13,7 @@ function inputPassword()
 end
 
 function validatePassword(password)
-    local savedPassword = "ez"
+    local savedPassword = "dang"
 
     if password:match("[^%w]") then
         return false
@@ -432,11 +432,11 @@ function fences()
 if ds == " | 🔴" then
 gg.setRanges(gg.REGION_CODE_APP)
 gg.processPause()
-gg.searchNumber("1,358,955,593;-3,458,689,702,670,892,504Q:13", gg.TYPE_DWORD)
+gg.searchNumber("1,358,955,593D;-1.47360724e-28F:21", gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll("-763363296", gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber("1,895,832,895;1,152,922,104,042,016,074Q:17", gg.TYPE_DWORD)
+gg.searchNumber("1,895,832,895D;-1.47360724e-28F:17", gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll("-698416192", gg.TYPE_DWORD)
 gg.processToggle()
@@ -446,11 +446,11 @@ ds = " | 🟢"
 elseif ds == " | 🟢" then
 gg.setRanges(gg.REGION_CODE_APP)
 gg.processPause()
-gg.searchNumber("-763363296;-3,458,689,702,670,892,504Q:13", gg.TYPE_DWORD)
+gg.searchNumber("-763363296;-1.47360724e-28F:21", gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll("1,358,955,593", gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber("-698416192;1,152,922,104,042,016,074Q:17", gg.TYPE_DWORD)
+gg.searchNumber("-698416192;-1.47360724e-28F:17", gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll("1,895,832,895", gg.TYPE_DWORD)
 gg.processToggle()
@@ -498,11 +498,11 @@ dp = " | 🔴"
 function headstun()
 if dp == " | 🔴" then
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber('1.57526047e-24F;-788,380,673D:5', gg.TYPE_DWORD)
+gg.searchNumber('1.57513277e-24F;-788,380,673D:5', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll('-763363328', gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('1.57526047e-24F;-1,459,329,030D:9', gg.TYPE_DWORD)
+gg.searchNumber('1.57513277e-24F;-1,459,329,030D:9', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll('-698416192', gg.TYPE_DWORD)
 gg.clearResults()
@@ -510,11 +510,11 @@ gg.toast("💫🕊️Throw Stun💣 | ON")
 dp = " | 🟢"
 elseif dp == " | 🟢" then
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber('1.57526047e-24F;-763363328:5', gg.TYPE_DWORD)
+gg.searchNumber('1.57513277e-24F;-763363328:5', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll('-788,380,673', gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('-698,416,192;1.57526047e-24F:9', gg.TYPE_DWORD)
+gg.searchNumber('-698,416,192;1.57513277e-24F:9', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll('-1,459,329,030', gg.TYPE_DWORD)
 gg.clearResults()
@@ -781,23 +781,23 @@ gg.searchNumber('960,520,457D;3,035,148,935,350,976,617Q:5', gg.TYPE_DWORD, fals
 gg.getResults(69, nil, nil, nil, nil, nil, nil, nil, nil)
 gg.editAll('-698416192',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('1.59581838e-24F;-788,462,593:5', gg.TYPE_DWORD) -- adContinueWatch
+gg.searchNumber('1.59569068e-24F;-788,462,593:5', gg.TYPE_DWORD) -- adContinueWatch
 gg.getResults(99)
 gg.editAll('-763363296',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('1.59581838e-24F;-117,435,405:9', gg.TYPE_DWORD, false, SIGH_QUAL, 0, -1) -- ret
+gg.searchNumber('1.59569068e-24F;-117,435,405:9', gg.TYPE_DWORD, false, SIGH_QUAL, 0, -1) -- ret
 gg.getResults(69, nil, nil, nil, nil, nil, nil, nil, nil)
 gg.editAll('-698416192',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('-1.49485483e-24F;-132,247,565:5', gg.TYPE_DWORD) -- hasEnoughTimePassedSinceLastAd
+gg.searchNumber('-1.49481273e-24F;-132,247,565:5', gg.TYPE_DWORD) -- hasEnoughTimePassedSinceLastAd
 gg.getResults(99)
 gg.editAll('-763363296',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('-1.49485483e-24F;-1,459,520,515:9', gg.TYPE_DWORD, false, SIGH_QUAL, 0, -1) -- ret
+gg.searchNumber('-1.49481273e-24F;-1,459,520,515:9', gg.TYPE_DWORD, false, SIGH_QUAL, 0, -1) -- ret
 gg.getResults(69, nil, nil, nil, nil, nil, nil, nil, nil)
 gg.editAll('-698416192',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('-4.37057214e13F;-268,412,792:5', gg.TYPE_DWORD) -- isSearchingAnyGame
+gg.searchNumber('-4.37057214e13F;-1,879,025,464:5', gg.TYPE_DWORD) -- isSearchingAnyGame
 gg.getResults(99)
 gg.editAll('-763363296',gg.TYPE_DWORD)
 gg.clearResults()
@@ -817,25 +817,25 @@ gg.searchNumber('-698,416,192;3,035,148,935,350,976,617Q:5', gg.TYPE_DWORD) -- r
 gg.getResults(99)
 gg.editAll('960,520,457',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('1.59581838e-24F;-763363296:5', gg.TYPE_DWORD) -- AdContinueWatch
+gg.searchNumber('1.59569068e-24F;-763363296:5', gg.TYPE_DWORD) -- AdContinueWatch
 gg.getResults(99)
 gg.editAll('-788,462,593',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('1.59581838e-24F;-698,416,192:9', gg.TYPE_DWORD) -- ret
+gg.searchNumber('1.59569068e-24F;-698,416,192:9', gg.TYPE_DWORD) -- ret
 gg.getResults(99)
 gg.editAll('-117,435,405',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('-1.49485483e-24F;-763363296:5', gg.TYPE_DWORD) -- hasEnoughTimePassedSinceLastAd
+gg.searchNumber('-1.49481273e-24F;-763363296:5', gg.TYPE_DWORD) -- hasEnoughTimePassedSinceLastAd
 gg.getResults(99)
 gg.editAll('-132,247,565',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('-1.49485483e-24F;-698,416,192:9', gg.TYPE_DWORD) -- ret
+gg.searchNumber('-1.49481273e-24F;-698,416,192:9', gg.TYPE_DWORD) -- ret
 gg.getResults(99)
 gg.editAll('-1,459,520,515',gg.TYPE_DWORD)
 gg.clearResults()
 gg.searchNumber('-4.37057214e13F;-763363296:5', gg.TYPE_DWORD) -- isSearchingAnyGame
 gg.getResults(99)
-gg.editAll('-268,412,792',gg.TYPE_DWORD)
+gg.editAll('-1,879,025,464',gg.TYPE_DWORD)
 gg.clearResults()
 gg.searchNumber('-4.37057214e13F;-698,416,192:9', gg.TYPE_DWORD) -- ret
 gg.getResults(99)
