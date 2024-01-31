@@ -60,7 +60,7 @@ gg.alert("Made by ❄️modhacker#3877❄️&🔥Onion#9272🔥")
 gg.sleep(100)
 gg.setVisible(true)
 function main()
-HDmenu = gg.choice({'💾 • Account','💉 • Hooks & Non-Hooks','💳 • Cards','📌️ • Credits','❌Exit❌'} ,nil, "Script Made By ❄️modhacker#3877❄️&🔥Onion#9272🔥 {64-Bit} v4.96") 
+HDmenu = gg.choice({'💾 • Account','💉 • Hooks & Non-Hooks','💳 • Cards','📌️ • Credits','❌Exit❌'} ,nil, "Script Made By ❄️modhacker#3877❄️&🔥Onion#9272🔥 {64-Bit} v4.97") 
 if HDmenu == 1 then accounts() end
 if HDmenu == 2 then hooks() end
 if HDmenu == 3 then regoins() end
