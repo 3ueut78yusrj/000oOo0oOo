@@ -807,14 +807,6 @@ gg.clearResults()
 gg.searchNumber('-4.37057214e13F;-112,746,232D:9', gg.TYPE_DWORD, false, SIGH_QUAL, 0, -1) -- ret
 gg.getResults(69, nil, nil, nil, nil, nil, nil, nil, nil)
 gg.editAll('-698416192',gg.TYPE_DWORD)
-gg.clearResults()
-gg.searchNumber('-1.18336852e-28F;-1,186,724,856D:45', gg.TYPE_DWORD, false, SIGH_QUAL, 0, -1) -- IsVideoRewardAvailable
-gg.getResults(99)
-gg.editAll('-763363296', gg.TYPE_DWORD)
-gg.clearResults()
-gg.searchNumber('-1.18336852e-28F;1,895,825,695D:49', gg.TYPE_DWORD, false, SIGH_QUAL, 0, -1) -- ret
-gg.getResults(99)
-gg.editAll('-698416192', gg.TYPE_DWORD)
 gg.toast('⏲️Bypass Ads⏲️ | ON')
 gg.clearResults()
 dc = " | 🟢"
@@ -851,14 +843,6 @@ gg.clearResults()
 gg.searchNumber('-4.37057214e13F;-698,416,192:9', gg.TYPE_DWORD) -- ret
 gg.getResults(99)
 gg.editAll('-112,746,232',gg.TYPE_DWORD)
-gg.clearResults()
-gg.searchNumber('-1.18336852e-28F;-763363296:45', gg.TYPE_DWORD, false, SIGH_QUAL, 0, -1) -- IsVideoRewardAvailable
-gg.getResults(99)
-gg.editAll('-1,186,724,856', gg.TYPE_DWORD)
-gg.clearResults()
-gg.searchNumber('-1.18336852e-28F;-698416192:49', gg.TYPE_DWORD, false, SIGH_QUAL, 0, -1) -- ret
-gg.getResults(99)
-gg.editAll('1,895,825,695', gg.TYPE_DWORD)
 gg.toast("⏲️Bypass Ads⏲️ | OFF")
 gg.clearResults()
 dc = " | 🔴"
