@@ -60,12 +60,17 @@ gg.alert("Made by ❄️modhacker#3877❄️&🔥Onion#9272🔥")
 gg.sleep(100)
 gg.setVisible(true)
 function main()
-HDmenu = gg.choice({'💾 • Account','💉 • Hooks & Non-Hooks','💳 • Cards','📌️ • Credits','❌Exit❌'} ,nil, "Script Made By ❄️modhacker#3877❄️&🔥Onion#9272🔥 {64-Bit} v4.97") 
+HDmenu = gg.choice({'💾 • Account','💉 • Hooks & Non-Hooks','💳 • Cards','📌️ • Credits','📜 • What new?','❌Exit❌'} ,nil, "Script Made By ❄️modhacker#3877❄️&🔥Onion#9272🔥 {64-Bit} v4.96") 
 if HDmenu == 1 then accounts() end
 if HDmenu == 2 then hooks() end
 if HDmenu == 3 then regoins() end
 if HDmenu == 4 then cred() end
-if HDmenu == 5 then exits() end
+if HDmenu == 5 then news() end
+if HDmenu == 6 then exits() end
+end
+
+function news()
+gg.alert("v9.12 Added:\n----------\nHooks - Fast Bomb")
 end
 
 function cred()
@@ -294,6 +299,7 @@ hook=gg.multiChoice({
 "🚩No Mines found🕳️, Does not activate mines" .. di, -- GameChar::CheckForCollisionWithHiddenMineBombsReturnTrueIfMineFound
 "🚧Bypass fence❌, You can walk" .. ds,
 "💼Items X100♾️, Collect 100+",
+"💣Fast Bomb⏳, Fast explosion" .. du,
 "↩️Back↩️",
 } ,nil, "⚔️Hooks⚔️ {NEW} | ON = 🟢 / OFF = 🔴")
 
@@ -311,12 +317,34 @@ if hook[9] == true then powers() end
 if hook[10] == true then mines() end
 if hook[11] == true then fences() end
 if hook[12] == true then itemsx100() end
-if hook[13] == true then main() end end
+if hook[13] == true then fastbomb() end
+if hook[14] == true then main() end end
 HOMEDM=-1 end
+
+du = " | 🔴"
+function fastbomb()
+if du == " | 🔴" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber('2.19910714e12F;1,895,845,503::', gg.TYPE_DWORD)
+gg.getResults(100)
+gg.editAll('1,895,825,408' ,gg.TYPE_DWORD)
+gg.clearResults()
+gg.toast("💣Fast bomb⏳ | ON")
+du = " | 🟢"
+elseif du == " | 🟢" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber('2.19910714e12F;1,895,825,408::', gg.TYPE_DWORD)
+gg.getResults(100)
+gg.editAll('1,895,845,503' ,gg.TYPE_DWORD)
+gg.clearResults()
+gg.toast("💣Fast bomb⏳ | OFF")
+du = " | 🔴"
+end
+end
 
 function itemsx100()
 gg.setVisible(false)
-local﻿ menu = gg.alert('💼Items X100♾️, Press Icon Game Guardian to OFF/ON, if you want to stop, you can see ⏺️ prees it to Stop. |||||| [⚠️Warning⚠️] If you so fast and Appears Wifi Erorr Stop Now....then move, Or You will get banned By Server He thinks you Hacking Speed. ||||||| How to not get banned: when you pick up an object you pick it up and then destroy it then go over it or even stay on top of it you wont be banned.👍','❌No❌','✅Yes✅')
+local﻿ menu = gg.alert('💼Items X100♾️, Press Icon Game Guardian to OFF/ON, if you want to stop, you can see ⏺️ prees it to Stop.\n----------\n[⚠️Warning⚠️] If you so fast and Appears Wifi Erorr Stop Now....then move, Or You will get banned By Server He thinks you Hacking Speed.\n----------\nHow to not get banned: when you pick up an object you pick it up and then destroy it then go over it or even stay on top of it you wont be banned👍.','❌No❌','✅Yes✅')
 if menu == nil then return 
 else
 if menu == 1 then Indo() end
@@ -873,7 +901,7 @@ menu=gg.multiChoice({
 "🧊Ice bomb🧊",
 "🌐Force Field Infinity♾️",
 "[↩️Back↩️]",
-} ,nil, "Script Made By ❄️modhacker#3877❄️&🔥Onion#9272🔥")
+} ,nil, "Script Made By modhacker#3877")
 
 if menu == nil then
 else
