@@ -57,10 +57,11 @@ gg.setVisible(false)
 gg.clearResults()
 gg.clearList()
 gg.alert("Made by ❄️modhacker#3877❄️&🔥Onion#9272🔥")
+print("❤️Thanks for Use my Script👍")
 gg.sleep(100)
 gg.setVisible(true)
 function main()
-HDmenu = gg.choice({'💾 • Account','💉 • Hooks & Non-Hooks','💳 • Cards','📌️ • Credits','📜 • What new?','❌Exit❌'} ,nil, "Script Made By ❄️modhacker#3877❄️&🔥Onion#9272🔥 {64-Bit} v4.96") 
+HDmenu = gg.choice({'💾 • Account','💉 • Hooks & Non-Hooks','💳 • Cards','📌️ • Credits','📜 • What new?','❌Exit❌'} ,nil, "Script Made By ❄️modhacker#3877❄️&🔥Onion#9272🔥 {64-Bit} v4.97") 
 if HDmenu == 1 then accounts() end
 if HDmenu == 2 then hooks() end
 if HDmenu == 3 then regoins() end
@@ -70,7 +71,7 @@ if HDmenu == 6 then exits() end
 end
 
 function news()
-gg.alert("v9.12 Added:\n----------\nHooks - Fast Bomb")
+gg.alert("v9.20 ⛔Remove⛔:\n----------\nHooks - Fast Bomb\n----------\nA little change %10")
 end
 
 function cred()
@@ -204,7 +205,7 @@ function regoins()
 regoine=gg.choice({
 "💳Cards v1💳 (Normal)",
 "💳Cards v2💳 (Fast)",
-"↩️Back↩️",
+"[↩️Back↩️]",
 } ,nil, "Cards :)")
 if regoine == 1 then regoinss() end
 if regoine == 2 then cards2() end
@@ -287,21 +288,21 @@ end
 
 function hooks()
 hook=gg.multiChoice({
-"⏳Cooldown⏳, 😭 fixed 😅",
-"🧱Throw bomb🧱, 😭 fixed 🫡",
+"⏳Cooldown⏳, ⚠️ fixed ⚠️",
+"🧱Throw bomb🧱, ⚠️ fixed ⚠️",
 "♾️Infinite Smoke♾, No Explosion",
 "❌Bypass Ads⏲️, You can open chest and more" .. dc,
 "👁️X-Ray v1 & v2🤩, Show items from wall",
 "💫🕊️Throw bomb Stun💣, When bomb throw on your head doesn't stun" .. dp,
 "🛡️Undestroy items💣, You need Collect fast before anticheat" .. dy,
-"💣Instant Line Of Bombs💣, 🤕 fixed 😮‍💨",
+"💣Instant Line Of Bombs💣, ⚠️ fixed ⚠️",
 "🔥Power bomb 0💣, Use after cooldown" .. de,
 "🚩No Mines found🕳️, Does not activate mines" .. di, -- GameChar::CheckForCollisionWithHiddenMineBombsReturnTrueIfMineFound
 "🚧Bypass fence❌, You can walk" .. ds,
 "💼Items X100♾️, Collect 100+",
-"💣Fast Bomb⏳, Fast explosion" .. du,
+"💣Fast Bomb⏳, ⚠️ fixed ⚠️",
 "↩️Back↩️",
-} ,nil, "⚔️Hooks⚔️ {NEW} | ON = 🟢 / OFF = 🔴")
+} ,nil, "⚔️Hooks⚔️ | ON = 🟢 / OFF = 🔴")
 
 if hook == nil then
 else
@@ -321,39 +322,18 @@ if hook[13] == true then fastbomb() end
 if hook[14] == true then main() end end
 HOMEDM=-1 end
 
-du = " | 🔴"
 function fastbomb()
-if du == " | 🔴" then
-gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber('2.19910714e12F;1,895,845,503::', gg.TYPE_DWORD)
-gg.getResults(100)
-gg.editAll('1,895,825,408' ,gg.TYPE_DWORD)
-gg.clearResults()
-gg.toast("💣Fast bomb⏳ | ON")
-du = " | 🟢"
-elseif du == " | 🟢" then
-gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber('2.19910714e12F;1,895,825,408::', gg.TYPE_DWORD)
-gg.getResults(100)
-gg.editAll('1,895,845,503' ,gg.TYPE_DWORD)
-gg.clearResults()
-gg.toast("💣Fast bomb⏳ | OFF")
-du = " | 🔴"
-end
+gg.alert("Sorry Fast Bomb got fixed😭")
 end
 
 function itemsx100()
 gg.setVisible(false)
-local﻿ menu = gg.alert('💼Items X100♾️, Press Icon Game Guardian to OFF/ON, if you want to stop, you can see ⏺️ prees it to Stop.\n----------\n[⚠️Warning⚠️] If you so fast and Appears Wifi Erorr Stop Now....then move, Or You will get banned By Server He thinks you Hacking Speed.\n----------\nHow to not get banned: when you pick up an object you pick it up and then destroy it then go over it or even stay on top of it you wont be banned👍.','❌No❌','✅Yes✅')
-if menu == nil then return 
+local﻿ menus = gg.alert('💼Items X100♾️, Press Icon Game Guardian to OFF/ON, if you want to stop, you can see ⏺️ prees it to Stop.\n----------\n[⚠️Warning⚠️] If you so fast and Appears Wifi Erorr Stop Now....then move, Or You will get banned By Server He thinks you Hacking Speed.\n----------\nHow to not get banned: when you pick up an object you pick it up and then destroy it then go over it or even stay on top of it you wont be banned👍.','❌No❌','✅Yes✅')
+if menus == nil then return
 else
-if menu == 1 then Indo() end
-if menu == 2 then Eng() end
+if menus == 1 then return end
+if menus == 2 then Eng() end
 end
-end
-
-function Indo() -- no
-hooks()
 end
 
 function Eng() -- yes
@@ -882,8 +862,6 @@ gg.clearResults()
 gg.clearList()
 gg.toast("Made By 💪modhacker#3877💪")
 gg.setVisible(true)
-gg.sleep(300)
-print("Yes, You like my Script😂❤️")
 os.exit()
 end
 
