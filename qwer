@@ -71,7 +71,7 @@ if HDmenu == 6 then exits() end
 end
 
 function news()
-gg.alert("v9.20 ⛔Remove⛔:\n----------\nHooks - Fast Bomb\n----------\nA little change %10")
+gg.alert("v9.53 ➕Added➕:\n----------\nHooks - Taunt Teleport\n----------\nFixed Some bugs")
 end
 
 function cred()
@@ -301,6 +301,7 @@ hook=gg.multiChoice({
 "🚧Bypass fence❌, You can walk" .. ds,
 "💼Items X100♾️, Collect 100+",
 "💣Fast Bomb⏳, ⚠️ fixed ⚠️",
+"🕺Taunt teleport👻, Fake lag" .. dn, -- BaseChar::setNewAnimationAfterMove
 "↩️Back↩️",
 } ,nil, "⚔️Hooks⚔️ | ON = 🟢 / OFF = 🔴")
 
@@ -319,8 +320,42 @@ if hook[10] == true then mines() end
 if hook[11] == true then fences() end
 if hook[12] == true then itemsx100() end
 if hook[13] == true then fastbomb() end
-if hook[14] == true then main() end end
+if hook[14] == true then taunt() end
+if hook[15] == true then main() end end
 HOMEDM=-1 end
+
+dn = " | 🔴"
+function taunt()
+if dn == " | 🔴" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.processPause()
+gg.searchNumber('-788,429,825D;-1.29064669e13F;-6.2336441e34F;-6.32811576e34F:49', gg.TYPE_DWORD)
+gg.getResults(99)
+gg.editAll("-763363328", gg.TYPE_DWORD)
+gg.clearResults()
+gg.searchNumber('1,828,856,809D;-1.01972562e-28F;-1.29064669e13F;0.00020612183F:53', gg.TYPE_DWORD)
+gg.getResults(99)
+gg.editAll("-698416192", gg.TYPE_DWORD)
+gg.clearResults()
+gg.processToggle()
+gg.toast("🕺Taunt Teleport👻 | ON")
+dn = " | 🟢"
+elseif dn == " | 🟢" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.processPause()
+gg.searchNumber('-763363328;-1.29064669e13F;-6.2336441e34F;-6.32811576e34F:49', gg.TYPE_DWORD)
+gg.getResults(99)
+gg.editAll("-788,429,825", gg.TYPE_DWORD)
+gg.clearResults()
+gg.searchNumber('-698416192;-1.01972562e-28F;-1.29064669e13F;0.00020612183F:53', gg.TYPE_DWORD)
+gg.getResults(99)
+gg.editAll("1,828,856,809", gg.TYPE_DWORD)
+gg.clearResults()
+gg.processToggle()
+gg.toast("🕺Taunt Teleport👻 | OFF")
+dn = " | 🔴"
+end
+end
 
 function fastbomb()
 gg.alert("Sorry Fast Bomb got fixed😭")
