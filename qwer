@@ -56,9 +56,8 @@ login()
 gg.setVisible(false)
 gg.clearResults()
 gg.clearList()
-gg.alert("Made by ❄️modhacker#3877❄️&🔥Onion#9272🔥")
 print("❤️Thanks for Use my Script👍")
-gg.sleep(100)
+gg.sleep(200)
 gg.setVisible(true)
 function main()
 HDmenu = gg.choice({'💾 • Account','💉 • Hooks & Non-Hooks','💳 • Cards','📌️ • Credits','📜 • What new?','❌Exit❌'} ,nil, "Script Made By ❄️modhacker#3877❄️&🔥Onion#9272🔥 {64-Bit} v4.97") 
@@ -68,18 +67,25 @@ if HDmenu == 3 then regoins() end
 if HDmenu == 4 then cred() end
 if HDmenu == 5 then news() end
 if HDmenu == 6 then exits() end
+HOMEDM = -1
 end
 
 function news()
-gg.alert("v9.53 ➕Added➕:\n----------\nHooks - Taunt Teleport\n----------\nFixed Some bugs")
+local newsss = gg.alert("v9.78 🛠️Fixed🛠️:\n----------\nHooks - Add v1 & v2 Items X100\n----------\nEasily Back\n----------\nCards - Add Yes/No/Back\n----------\nFixed Some Errors and bugs")
+if newsss == nil then main()
+else
+if newsss == 0 then main() end
+if newsss == 1 then main() end
+end
 end
 
 function cred()
-gg.choice({
-    "Credits to: ⬇️",
-    "onion0362 🥸",
-    "edittex 🤓",
-    "ant_4n7 [👍Helper👍]" ,})
+local cerds = gg.alert("Credits to: ⬇️\n\nonion0362 🥸\n\nedittex 🤓\n\nant_4n7 [👍Helper👍]")
+if cerds == nil then main()
+else
+if cerds == 0 then main() end
+if cerds == 1 then main() end
+end
 end
 
 function accounts()
@@ -90,7 +96,7 @@ account=gg.multiChoice({
 "↩️Back↩️",
 } ,nil, "🏦Account🏦 | ON = 🟢 / OFF = 🔴")
 
-if account == nil then
+if account == nil then main()
 else
 if account[1] == true then cardUpgrade() end
 if account[2] == true then Longname() end
@@ -207,6 +213,7 @@ regoine=gg.choice({
 "💳Cards v2💳 (Fast)",
 "[↩️Back↩️]",
 } ,nil, "Cards :)")
+if regoine == nil then main() end
 if regoine == 1 then regoinss() end
 if regoine == 2 then cards2() end
 if regoine == 3 then main() end
@@ -220,12 +227,12 @@ menun=gg.multiChoice({
 "[↩️Back↩️]",
 } ,nil, "(Not Like Cards v1), this is better v2 (More Coming Soon 🐐)")
 
-if menun == nil then
+if menun == nil then regoins()
 else
 if menun[1] == true then ASA() end
 if menun[2] == true then BSB() end
 if menun[3] == true then CSC() end
-if menun[4] == true then main() end end
+if menun[4] == true then regoins() end end
 HOMEDM=-1 end
 
 function ASA()
@@ -262,28 +269,45 @@ regoin=gg.choice({
 "Anonymous (A)",
 "↩️Back↩️",
 } ,nil, "Choose Your Region Support")
+
+if regoin == nil then regoins() end
 if regoin == 1 then CAlloc() end
 if regoin == 2 then Others() end
 if regoin == 3 then Anonymous() end
-if region == 4 then main() end
+if regoin == 4 then regoins() end
 end
 
 function CAlloc()
 gg.setRanges(gg.REGION_C_ALLOC)
-gg.alert("✅C_Alloc✅")
-cards()
+local cal = gg.alert('✅C_Alloc✅','❌No❌','✅Yes✅')
+if cal == nil then main()
+else
+if cal == 0 then regoinss() end
+if cal == 1 then regoinss() end
+if cal == 2 then cards() end
+end
 end
 
 function Others()
 gg.setRanges(gg.REGION_OTHER)
-gg.alert("✅Others✅")
-cards()
+local oth = gg.alert('✅Others✅','❌No❌','✅Yes✅')
+if oth == nil then main()
+else
+if oth == 0 then regoinss() end
+if oth == 1 then regoinss() end
+if oth == 2 then cards() end
+end
 end
 
 function Anonymous()
 gg.setRanges(gg.REGION_ANONYMOUS)
-gg.alert("✅Anonymous✅")
-cards()
+local anon = gg.alert('✅Anonymous✅','❌No❌','✅Yes✅')
+if anon == nil then main()
+else
+if anon == 0 then regoinss() end
+if anon == 1 then regoinss() end
+if anon == 2 then cards() end
+end
 end
 
 function hooks()
@@ -299,13 +323,13 @@ hook=gg.multiChoice({
 "🔥Power bomb 0💣, Use after cooldown" .. de,
 "🚩No Mines found🕳️, Does not activate mines" .. di, -- GameChar::CheckForCollisionWithHiddenMineBombsReturnTrueIfMineFound
 "🚧Bypass fence❌, You can walk" .. ds,
-"💼Items X100♾️, Collect 100+",
-"💣Fast Bomb⏳, ⚠️ fixed ⚠️",
 "🕺Taunt teleport👻, Fake lag" .. dn, -- BaseChar::setNewAnimationAfterMove
+"💣Fast Bomb⏳, ⚠️ fixed ⚠️",
+"💼Items X100♾️, Collect 100+ items", -- setTileItemToTemporaryItem
 "↩️Back↩️",
 } ,nil, "⚔️Hooks⚔️ | ON = 🟢 / OFF = 🔴")
 
-if hook == nil then
+if hook == nil then main()
 else
 if hook[1] == true then cooldown() end
 if hook[2] == true then wall() end
@@ -318,9 +342,9 @@ if hook[8] == true then line() end
 if hook[9] == true then powers() end
 if hook[10] == true then mines() end
 if hook[11] == true then fences() end
-if hook[12] == true then itemsx100() end
+if hook[12] == true then taunt() end
 if hook[13] == true then fastbomb() end
-if hook[14] == true then taunt() end
+if hook[14] == true then items() end
 if hook[15] == true then main() end end
 HOMEDM=-1 end
 
@@ -361,22 +385,33 @@ function fastbomb()
 gg.alert("Sorry Fast Bomb got fixed😭")
 end
 
-function itemsx100()
+function items()
+itemers=gg.choice({
+"items X100 V1 : (freeze 2 sec, supports some versions)",
+"Items X100 V2 : Very Fast (Only v4.97)",
+} ,nil, "Choose Items X100 V1,V2")
+if itemers == 1 then x1001() end
+if itemers == 2 then x1002() end
+end
+
+function x1001()
 gg.setVisible(false)
 local﻿ menus = gg.alert('💼Items X100♾️, Press Icon Game Guardian to OFF/ON, if you want to stop, you can see ⏺️ prees it to Stop.\n----------\n[⚠️Warning⚠️] If you so fast and Appears Wifi Erorr Stop Now....then move, Or You will get banned By Server He thinks you Hacking Speed.\n----------\nHow to not get banned: when you pick up an object you pick it up and then destroy it then go over it or even stay on top of it you wont be banned👍.','❌No❌','✅Yes✅')
-if menus == nil then return
+if menus == nil then gg.setVisible(true)
 else
-if menus == 1 then return end
-if menus == 2 then Eng() end
+if menus == 0 then gg.setVisible(true) end
+if menus == 1 then gg.setVisible(true) end
+if menus == 2 then gng() end
 end
 end
 
-function Eng() -- yes
-local scriptAtivado = false  -- Estado atual do script
+function gng() -- yes
+local scriptAtivad = false  -- Estado atual do script
+gg.toast("Click to Start.")
 
-local function modifyValues()
-gg.processPause()
+local function modifyValue()
 gg.setRanges(gg.REGION_CODE_APP)
+gg.processPause()
 gg.searchNumber('-6,250,578,478,152,761,760;-2,999,674,700,805,550,092;-6,215,715,193,031,294,016;-1,447,208,970D::19', gg.TYPE_QWORD)
 gg.getResults(5)
 gg.editAll('-763363328' ,gg.TYPE_DWORD)
@@ -389,9 +424,9 @@ gg.toast("💼Items X100♾️ | ON")
 gg.clearResults()
 end
 
-local function restoreValues()
-gg.processPause()
+local function restoreValue()
 gg.setRanges(gg.REGION_CODE_APP)
+gg.processPause() 
 gg.searchNumber('-6,250,578,478,152,761,760;-763363328D::19', gg.TYPE_QWORD)
 gg.getResults(5)
 gg.editAll('-1,447,208,970' ,gg.TYPE_DWORD)
@@ -402,6 +437,73 @@ gg.editAll('-1,459,531,788',gg.TYPE_DWORD)
 gg.processToggle()
 gg.toast("💼Items X100♾️ | OFF")
 gg.clearResults()
+end
+
+local function toggleScrip()
+  scriptAtivad = not scriptAtivad
+  if scriptAtivad then
+    modifyValue()
+  else
+    restoreValue()
+  end
+end
+
+-- Adicionando um loop para manter o script em execução
+while true do
+  if gg.isVisible(true) then
+    gg.setVisible(false)
+    toggleScrip()
+  end
+  gg.sleep(10) -- Adicionando um pequeno atraso para evitar consumo excessivo de recursos
+end
+end 
+
+
+function x1002()
+gg.setVisible(false)
+local﻿ menus = gg.alert('💼Items X100♾️, Press Icon Game Guardian to OFF/ON, if you want to stop, you can see ⏺️ prees it to Stop.\n----------\n[⚠️Warning⚠️] If you so fast and Appears Wifi Erorr Stop Now....then move, Or You will get banned By Server He thinks you Hacking Speed.\n----------\nHow to not get banned: when you pick up an object you pick it up and then destroy it then go over it or even stay on top of it you wont be banned👍.','❌No❌','✅Yes✅')
+if menus == nil then gg.setVisible(true)
+else
+if menus == 0 then gg.setVisible(true) end
+if menus == 1 then gg.setVisible(true) end
+if menus == 2 then Eng() end
+end
+end
+
+function Eng() -- yes
+local scriptAtivado = false  -- Estado atual do script
+gg.toast("Click to Start.")
+
+local function modifyValues()
+LibStart=gg.getRangesList('libMyGame.so')[1].start
+APEXGG=nil
+APEXGG={}
+APEXGG[1]={}
+APEXGG[2]={}
+APEXGG[1].address=LibStart+0xA8BCD0
+APEXGG[1].value='h200080D2'
+APEXGG[1].flags=4
+APEXGG[2].address=LibStart+(0xA8BCD0+0x4)
+APEXGG[2].value='hC0035FD6'
+APEXGG[2].flags=4
+gg.setValues(APEXGG)
+gg.toast("💼Items X100♾️ | ON")
+end
+
+local function restoreValues()
+LibStart=gg.getRangesList('libMyGame.so')[1].start
+APEXG=nil
+APEXG={}
+APEXG[1]={}
+APEXG[2]={}
+APEXG[1].address=LibStart+0xA8BCD0
+APEXG[1].value='hF657BDA9'
+APEXG[1].flags=4
+APEXG[2].address=LibStart+(0xA8BCD0+0x4)
+APEXG[2].value='hF44F01A9'
+APEXG[2].flags=4
+gg.setValues(APEXG)
+gg.toast("💼Items X100♾️ | OFF")
 end
 
 local function toggleScript()
@@ -419,7 +521,7 @@ while true do
     gg.setVisible(false)
     toggleScript()
   end
-  gg.sleep(100) -- Adicionando um pequeno atraso para evitar consumo excessivo de recursos
+  gg.sleep(10) -- Adicionando um pequeno atraso para evitar consumo excessivo de recursos
 end
 end
 
@@ -580,7 +682,7 @@ end
 function xray()
 Xrayy=gg.choice({
 "Xray V2" .. df,
-"Xray V1" .. dt,
+"Xray V1, Turn it if you on Arena or you will get crash" .. dt,
 } ,nil, "Choose Xray V1, V2")
 if Xrayy == 1 then xray2() end
 if Xrayy == 2 then xray1() end
@@ -916,7 +1018,7 @@ menu=gg.multiChoice({
 "[↩️Back↩️]",
 } ,nil, "Script Made By modhacker#3877")
 
-if menu == nil then
+if menu == nil then regoinss()
 else
 if menu[1] == true then A() end
 if menu[2] == true then B() end
@@ -928,7 +1030,7 @@ if menu[7] == true then F() end
 if menu[8] == true then H() end
 if menu[9] == true then I() end
 if menu[10] == true then J() end
-if menu[11] == true then main() end end
+if menu[11] == true then regoinss() end end
 HOMEDM=-1 end
 
 function A()
