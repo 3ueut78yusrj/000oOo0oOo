@@ -60,7 +60,8 @@ print("❤️Thanks for Use my Script👍")
 gg.sleep(200)
 gg.setVisible(true)
 function main()
-HDmenu = gg.choice({'💾 • Account','💉 • Hooks & Non-Hooks','💳 • Cards','📌️ • Credits','📜 • What new?','❌Exit❌'} ,nil, "Script Made By ❄️modhacker#3877❄️&🔥Onion#9272🔥 {64-Bit} v4.97") 
+HDmenu = gg.choice({'💾 • Account','💉 • Hooks & Non-Hooks','💳 • Cards','📌️ • Credits','📜 • What new?','❌Exit❌'} ,nil, "Script Made By ❄️modhacker#3877❄️&🔥Onion#9272🔥 {64-Bit} v4.98")
+if HDmenu == nil then gg.setVisible(false) end
 if HDmenu == 1 then accounts() end
 if HDmenu == 2 then hooks() end
 if HDmenu == 3 then regoins() end
@@ -71,7 +72,7 @@ HOMEDM = -1
 end
 
 function news()
-local newsss = gg.alert("v9.78 🛠️Fixed🛠️:\n----------\nHooks - Add v1 & v2 Items X100\n----------\nEasily Back\n----------\nCards - Add Yes/No/Back\n----------\nFixed Some Errors and bugs")
+local newsss = gg.alert("v9.82 🛠️Fixed & Added➕:\n----------\nHooks V2 Items X100 (FIX BUG) & Add Fast throw\n----------\nUpdate to v4.98\n----------\nRemove Bypass Ads from hooks to Account & fixed crash")
 if newsss == nil then main()
 else
 if newsss == 0 then main() end
@@ -90,6 +91,7 @@ end
 
 function accounts()
 account=gg.multiChoice({
+"❌Bypass Ads⏲️, You can open chest and more" .. dc,
 "⬆️Cards Upgrade💳, Add Upgrade On Your Cards." .. dx,
 "♾️Long Text♾️, Your: name/clan/room/PassRoom." ..dk,
 "🎯Bypass Ban🛡️, you cant play matchs :(." ..dl,
@@ -98,10 +100,11 @@ account=gg.multiChoice({
 
 if account == nil then main()
 else
-if account[1] == true then cardUpgrade() end
-if account[2] == true then Longname() end
-if account[3] == true then bypassban() end
-if account[4] == true then main() end end
+if account[1] == true then ads() end
+if account[2] == true then cardUpgrade() end
+if account[3] == true then Longname() end
+if account[4] == true then bypassban() end
+if account[5] == true then main() end end
 HOMEDM=-1 end
 
 dl = " | 🔴"
@@ -315,7 +318,6 @@ hook=gg.multiChoice({
 "⏳Cooldown⏳, ⚠️ fixed ⚠️",
 "🧱Throw bomb🧱, ⚠️ fixed ⚠️",
 "♾️Infinite Smoke♾, No Explosion",
-"❌Bypass Ads⏲️, You can open chest and more" .. dc,
 "👁️X-Ray v1 & v2🤩, Show items from wall",
 "💫🕊️Throw bomb Stun💣, When bomb throw on your head doesn't stun" .. dp,
 "🛡️Undestroy items💣, You need Collect fast before anticheat" .. dy,
@@ -325,6 +327,7 @@ hook=gg.multiChoice({
 "🚧Bypass fence❌, You can walk" .. ds,
 "🕺Taunt teleport👻, Fake lag" .. dn, -- BaseChar::setNewAnimationAfterMove
 "💣Fast Bomb⏳, ⚠️ fixed ⚠️",
+"🪽Throw Fast🏃, Not That very fast throw" .. dq,
 "💼Items X100♾️, Collect 100+ items", -- setTileItemToTemporaryItem
 "↩️Back↩️",
 } ,nil, "⚔️Hooks⚔️ | ON = 🟢 / OFF = 🔴")
@@ -334,30 +337,59 @@ else
 if hook[1] == true then cooldown() end
 if hook[2] == true then wall() end
 if hook[3] == true then smoke() end
-if hook[4] == true then ads() end
-if hook[5] == true then xray() end
-if hook[6] == true then headstun() end
-if hook[7] == true then unitem() end
-if hook[8] == true then line() end
-if hook[9] == true then powers() end
-if hook[10] == true then mines() end
-if hook[11] == true then fences() end
-if hook[12] == true then taunt() end
-if hook[13] == true then fastbomb() end
+if hook[4] == true then xray() end
+if hook[5] == true then headstun() end
+if hook[6] == true then unitem() end
+if hook[7] == true then line() end
+if hook[8] == true then powers() end
+if hook[9] == true then mines() end
+if hook[10] == true then fences() end
+if hook[11] == true then taunt() end
+if hook[12] == true then fastbomb() end
+if hook[13] == true then tfast() end
 if hook[14] == true then items() end
 if hook[15] == true then main() end end
 HOMEDM=-1 end
+
+dq = " | 🔴"
+function tfast()
+if dq == " | 🔴" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber('8.84116488e-21F;1,386,778,441D:5', gg.TYPE_DWORD)
+gg.getResults(99)
+gg.editAll("1,384,120,361", gg.TYPE_DWORD)
+gg.clearResults()
+gg.searchNumber('8.84113984e-21F;285,827,352D:17', gg.TYPE_DWORD)
+gg.getResults(99)
+gg.editAll("285,762,840", gg.TYPE_DWORD)
+gg.clearResults()
+gg.toast("🪽Throw Fast🏃 | ON")
+dq = " | 🟢"
+elseif dq == " | 🟢" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber('8.84116488e-21F;1,384,120,361D:5', gg.TYPE_DWORD)
+gg.getResults(99)
+gg.editAll("1,386,778,441", gg.TYPE_DWORD)
+gg.clearResults()
+gg.searchNumber('8.84113984e-21F;285,762,840D:17', gg.TYPE_DWORD)
+gg.getResults(99)
+gg.editAll("285,827,352", gg.TYPE_DWORD)
+gg.clearResults()
+gg.toast("🪽Throw Fast🏃 | OFF")
+dq = " | 🔴"
+end
+end
 
 dn = " | 🔴"
 function taunt()
 if dn == " | 🔴" then
 gg.setRanges(gg.REGION_CODE_APP)
 gg.processPause()
-gg.searchNumber('-788,429,825D;-1.29064669e13F;-6.2336441e34F;-6.32811576e34F:49', gg.TYPE_DWORD)
+gg.searchNumber('9.26773158e-21F;8.47200968e-21F;-788,429,825D:33', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll("-763363328", gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('1,828,856,809D;-1.01972562e-28F;-1.29064669e13F;0.00020612183F:53', gg.TYPE_DWORD)
+gg.searchNumber('1,828,856,809D;-1.01972562e-28F;-1.29064669e13F;-6.2336441e34F;1.1547691e-13F;-1.13700539e-13F:33', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll("-698416192", gg.TYPE_DWORD)
 gg.clearResults()
@@ -367,11 +399,11 @@ dn = " | 🟢"
 elseif dn == " | 🟢" then
 gg.setRanges(gg.REGION_CODE_APP)
 gg.processPause()
-gg.searchNumber('-763363328;-1.29064669e13F;-6.2336441e34F;-6.32811576e34F:49', gg.TYPE_DWORD)
+gg.searchNumber('-763363328;9.26773158e-21F;8.47200968e-21F:33', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll("-788,429,825", gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('-698416192;-1.01972562e-28F;-1.29064669e13F;0.00020612183F:53', gg.TYPE_DWORD)
+gg.searchNumber('-698416192;-1.01972562e-28F;-1.29064669e13F;-6.2336441e34F;1.1547691e-13F;-1.13700539e-13F:33', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll("1,828,856,809", gg.TYPE_DWORD)
 gg.clearResults()
@@ -388,7 +420,7 @@ end
 function items()
 itemers=gg.choice({
 "items X100 V1 : (freeze 2 sec, supports some versions)",
-"Items X100 V2 : Very Fast (Only v4.97)",
+"Items X100 V2 : Very Fast (Only v4.98 & fixed bug)",
 } ,nil, "Choose Items X100 V1,V2")
 if itemers == 1 then x1001() end
 if itemers == 2 then x1002() end
@@ -475,34 +507,18 @@ local scriptAtivado = false  -- Estado atual do script
 gg.toast("Click to Start.")
 
 local function modifyValues()
-LibStart=gg.getRangesList('libMyGame.so')[1].start
-APEXGG=nil
-APEXGG={}
-APEXGG[1]={}
-APEXGG[2]={}
-APEXGG[1].address=LibStart+0xA8BCD0
-APEXGG[1].value='h200080D2'
-APEXGG[1].flags=4
-APEXGG[2].address=LibStart+(0xA8BCD0+0x4)
-APEXGG[2].value='hC0035FD6'
-APEXGG[2].flags=4
-gg.setValues(APEXGG)
+gg.searchNumber("h F6 57 BD A9 F4 4F 01 A9 FD 7B 02 A9 FD 83 00 91 F3 03 00 AA 00 6C", gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll("h200080D2C0035FD6", gg.TYPE_BYTE)
+gg.clearResults()
 gg.toast("💼Items X100♾️ | ON")
 end
 
 local function restoreValues()
-LibStart=gg.getRangesList('libMyGame.so')[1].start
-APEXG=nil
-APEXG={}
-APEXG[1]={}
-APEXG[2]={}
-APEXG[1].address=LibStart+0xA8BCD0
-APEXG[1].value='hF657BDA9'
-APEXG[1].flags=4
-APEXG[2].address=LibStart+(0xA8BCD0+0x4)
-APEXG[2].value='hF44F01A9'
-APEXG[2].flags=4
-gg.setValues(APEXG)
+gg.searchNumber("h 20 00 80 D2 C0 03 5F D6 00 00 00 00 00 00 00 00 00 00 00 00 00 00", gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll("h F6 57 BD A9 F4 4F 01 A9 FD 7B 02 A9 FD 83 00 91 F3 03 00 AA 00 6C", gg.TYPE_BYTE)
+gg.clearResults()
 gg.toast("💼Items X100♾️ | OFF")
 end
 
@@ -646,11 +662,11 @@ dp = " | 🔴"
 function headstun()
 if dp == " | 🔴" then
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber('1.57513277e-24F;-788,380,673D:5', gg.TYPE_DWORD)
+gg.searchNumber('3.61979216e11F;-788,380,673D:61', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll('-763363328', gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('1.57513277e-24F;-1,459,329,030D:9', gg.TYPE_DWORD)
+gg.searchNumber('3.61979216e11F;-1,459,329,030D:65', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll('-698416192', gg.TYPE_DWORD)
 gg.clearResults()
@@ -658,11 +674,11 @@ gg.toast("💫🕊️Throw Stun💣 | ON")
 dp = " | 🟢"
 elseif dp == " | 🟢" then
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber('1.57513277e-24F;-763363328:5', gg.TYPE_DWORD)
+gg.searchNumber('3.61979216e11F;-763363328:61', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll('-788,380,673', gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('-698,416,192;1.57513277e-24F:9', gg.TYPE_DWORD)
+gg.searchNumber('-698,416,192;3.61979216e11F:65', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll('-1,459,329,030', gg.TYPE_DWORD)
 gg.clearResults()
@@ -777,7 +793,7 @@ gg.searchNumber('1,384,153,056;-4.37069294e13F:5', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll('1,384,168,320',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('1,384,184,320;-4.37069294e13F:5', gg.TYPE_DWORD)
+gg.searchNumber('1,384,136,352;-4.37069294e13F:5', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll('1,384,168,320',gg.TYPE_DWORD)
 gg.clearResults()
@@ -798,7 +814,7 @@ gg.searchNumber('1,384,136,320;-4.37069294e13F:5', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll('1,384,153,056',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('1,384,184,320;-4.37069294e13F:5', gg.TYPE_DWORD)
+gg.searchNumber('1,384,136,352;-4.37069294e13F:5', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll('1,384,153,056', gg.TYPE_DWORD)
 gg.clearResults()
@@ -827,7 +843,7 @@ gg.searchNumber('1,384,153,056;-4.37069294e13F:5', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll('1386221632',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('1,384,184,320;-4.37069294e13F:5', gg.TYPE_DWORD)
+gg.searchNumber('1,384,136,352;-4.37069294e13F:5', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll('1386221632',gg.TYPE_DWORD)
 gg.clearResults()
@@ -852,7 +868,7 @@ gg.searchNumber('1,384,153,056;-4.37069294e13F:5', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll('1,384,216,320',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('1,384,184,320;-4.37069294e13F:5', gg.TYPE_DWORD)
+gg.searchNumber('1,384,136,352;-4.37069294e13F:5', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll('1,384,216,320',gg.TYPE_DWORD)
 gg.clearResults()
@@ -871,23 +887,23 @@ function SLOW()
 gg.setRanges(gg.REGION_CODE_APP)
 gg.searchNumber('1,384,153,056;-4.37069294e13F:5', gg.TYPE_DWORD)
 gg.getResults(99)
-gg.editAll('1,384,184,320',gg.TYPE_DWORD)
+gg.editAll('1,384,136,352',gg.TYPE_DWORD)
 gg.clearResults()
 gg.searchNumber('1,384,136,320;-4.37069294e13F:5', gg.TYPE_DWORD)
 gg.getResults(99)
-gg.editAll('1,384,184,320',gg.TYPE_DWORD)
+gg.editAll('1,384,136,352',gg.TYPE_DWORD)
 gg.clearResults()
 gg.searchNumber('1386221632;-4.37069294e13F:5', gg.TYPE_DWORD)
 gg.getResults(99)
-gg.editAll('1,384,184,320', gg.TYPE_DWORD)
+gg.editAll('1,384,136,352', gg.TYPE_DWORD)
 gg.clearResults()
 gg.searchNumber('1,384,216,320;-4.37069294e13F:5', gg.TYPE_DWORD)
 gg.getResults(99)
-gg.editAll('1,384,184,320',gg.TYPE_DWORD)
+gg.editAll('1,384,136,352',gg.TYPE_DWORD)
 gg.clearResults()
 gg.searchNumber('1,384,168,320;-4.37069294e13F:5', gg.TYPE_DWORD)
 gg.getResults(99)
-gg.editAll('1,384,184,320', gg.TYPE_DWORD)
+gg.editAll('1,384,136,352', gg.TYPE_DWORD)
 gg.clearResults()
 gg.toast("Smoke Slow")
 end
@@ -898,7 +914,7 @@ gg.searchNumber('1,384,153,056;-4.37069294e13F:5', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll('1,384,136,320',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('1,384,184,320;-4.37069294e13F:5', gg.TYPE_DWORD)
+gg.searchNumber('1,384,136,352;-4.37069294e13F:5', gg.TYPE_DWORD)
 gg.getResults(99)
 gg.editAll('1,384,136,320', gg.TYPE_DWORD)
 gg.clearResults()
@@ -921,73 +937,56 @@ dc = " | 🔴"
 function ads()
 if dc == " | 🔴" then
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber('-113,242,104;3,819,051,973,815,042,209Q:25', gg.TYPE_DWORD) -- isRewardedAdWatchedSuccessfully
+gg.searchNumber('1.41233813e-13F;960,545,033D:9', gg.TYPE_DWORD) -- isRewardedAdWatchedSuccessfully
 gg.getResults(99)
 gg.editAll('-763363296',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('960,520,457D;3,035,148,935,350,976,617Q:5', gg.TYPE_DWORD, false, SIGH_QUAL, 0, -1) -- ret
+gg.searchNumber('1.41233813e-13F;905,969,825D:13', gg.TYPE_DWORD, false, SIGH_QUAL, 0, -1) -- ret
 gg.getResults(69, nil, nil, nil, nil, nil, nil, nil, nil)
 gg.editAll('-698416192',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('1.59569068e-24F;-788,462,593:5', gg.TYPE_DWORD) -- adContinueWatch
+gg.searchNumber('0.00018371048F;-2.15730008e-14F;-132,247,565D:45', gg.TYPE_DWORD) -- hasEnoughTimePassedSinceLastAd
 gg.getResults(99)
 gg.editAll('-763363296',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('1.59569068e-24F;-117,435,405:9', gg.TYPE_DWORD, false, SIGH_QUAL, 0, -1) -- ret
+gg.searchNumber('-1,459,520,515D;-1.13700539e-13F;-1.01075885e-28F:17', gg.TYPE_DWORD, false, SIGH_QUAL, 0, -1) -- ret
 gg.getResults(69, nil, nil, nil, nil, nil, nil, nil, nil)
 gg.editAll('-698416192',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('-1.49481273e-24F;-132,247,565:5', gg.TYPE_DWORD) -- hasEnoughTimePassedSinceLastAd
+gg.searchNumber('-6.23076019e34F;-805,283,608D:13', gg.TYPE_DWORD) -- isSearchingAnyGame
 gg.getResults(99)
 gg.editAll('-763363296',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('-1.49481273e-24F;-1,459,520,515:9', gg.TYPE_DWORD, false, SIGH_QUAL, 0, -1) -- ret
-gg.getResults(69, nil, nil, nil, nil, nil, nil, nil, nil)
-gg.editAll('-698416192',gg.TYPE_DWORD)
-gg.clearResults()
-gg.searchNumber('-4.37057214e13F;-1,879,025,464:5', gg.TYPE_DWORD) -- isSearchingAnyGame
-gg.getResults(99)
-gg.editAll('-763363296',gg.TYPE_DWORD)
-gg.clearResults()
-gg.searchNumber('-4.37057214e13F;-112,746,232D:9', gg.TYPE_DWORD, false, SIGH_QUAL, 0, -1) -- ret
+gg.searchNumber('-6.23076019e34F;-112,745,208D:17', gg.TYPE_DWORD, false, SIGH_QUAL, 0, -1) -- ret
 gg.getResults(69, nil, nil, nil, nil, nil, nil, nil, nil)
 gg.editAll('-698416192',gg.TYPE_DWORD)
 gg.toast('⏲️Bypass Ads⏲️ | ON')
-gg.clearResults()
 dc = " | 🟢"
 elseif dc == " | 🟢" then
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber('-763363296;3,819,051,973,815,042,209Q:25', gg.TYPE_DWORD) -- isRewardedAdWatchedSuccessfully
+gg.searchNumber('1.41233813e-13F;-763363296:9', gg.TYPE_DWORD) -- isRewardedAdWatchedSuccessfully
 gg.getResults(99)
-gg.editAll('-113,242,104',gg.TYPE_DWORD)
+gg.editAll('960,545,033',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('-698,416,192;3,035,148,935,350,976,617Q:5', gg.TYPE_DWORD) -- ret
+gg.searchNumber('-698416192;4.76833776e-7F:5', gg.TYPE_DWORD) -- ret
 gg.getResults(99)
-gg.editAll('960,520,457',gg.TYPE_DWORD)
+gg.editAll('905,969,825',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('1.59569068e-24F;-763363296:5', gg.TYPE_DWORD) -- AdContinueWatch
-gg.getResults(99)
-gg.editAll('-788,462,593',gg.TYPE_DWORD)
-gg.clearResults()
-gg.searchNumber('1.59569068e-24F;-698,416,192:9', gg.TYPE_DWORD) -- ret
-gg.getResults(99)
-gg.editAll('-117,435,405',gg.TYPE_DWORD)
-gg.clearResults()
-gg.searchNumber('-1.49481273e-24F;-763363296:5', gg.TYPE_DWORD) -- hasEnoughTimePassedSinceLastAd
+gg.searchNumber('0.00018371048F;-2.15730008e-14F;-763363296:45', gg.TYPE_DWORD) -- hasEnoughTimePassedSinceLastAd
 gg.getResults(99)
 gg.editAll('-132,247,565',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('-1.49481273e-24F;-698,416,192:9', gg.TYPE_DWORD) -- ret
+gg.searchNumber('-698,416,192D;-1.01183701e-28F;-6.23278843e34F:9', gg.TYPE_DWORD) -- ret
 gg.getResults(99)
 gg.editAll('-1,459,520,515',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('-4.37057214e13F;-763363296:5', gg.TYPE_DWORD) -- isSearchingAnyGame
+gg.searchNumber('-6.23076019e34F;-763363296:13', gg.TYPE_DWORD) -- isSearchingAnyGame
 gg.getResults(99)
-gg.editAll('-1,879,025,464',gg.TYPE_DWORD)
+gg.editAll('-805,283,608',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('-4.37057214e13F;-698,416,192:9', gg.TYPE_DWORD) -- ret
+gg.searchNumber('-4.37057214e13F;-698,416,192D;-6.23088696e34F:13', gg.TYPE_DWORD) -- ret
 gg.getResults(99)
-gg.editAll('-112,746,232',gg.TYPE_DWORD)
+gg.editAll('-112,745,208',gg.TYPE_DWORD)
 gg.toast("⏲️Bypass Ads⏲️ | OFF")
 gg.clearResults()
 dc = " | 🔴"
