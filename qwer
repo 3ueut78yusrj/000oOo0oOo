@@ -507,6 +507,7 @@ local scriptAtivado = false  -- Estado atual do script
 gg.toast("Click to Start.")
 
 local function modifyValues()
+gg.setRanges(gg.REGION_CODE_APP)
 gg.searchNumber("h F6 57 BD A9 F4 4F 01 A9 FD 7B 02 A9 FD 83 00 91 F3 03 00 AA 00 6C", gg.TYPE_BYTE)
 gg.getResults(99)
 gg.editAll("h200080D2C0035FD6", gg.TYPE_BYTE)
@@ -515,6 +516,7 @@ gg.toast("💼Items X100♾️ | ON")
 end
 
 local function restoreValues()
+gg.setRanges(gg.REGION_CODE_APP)
 gg.searchNumber("h 20 00 80 D2 C0 03 5F D6 00 00 00 00 00 00 00 00 00 00 00 00 00 00", gg.TYPE_BYTE)
 gg.getResults(99)
 gg.editAll("h F6 57 BD A9 F4 4F 01 A9 FD 7B 02 A9 FD 83 00 91 F3 03 00 AA 00 6C", gg.TYPE_BYTE)
