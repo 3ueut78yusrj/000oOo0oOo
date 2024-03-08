@@ -1,8 +1,6 @@
 
 -- mother fucker You just learned how to Decryption, nigger fuck your mom ur shit Ass get new live nigger lil bro, thanks you for To listen.
 
-gg.alert("Hello guys...\nThis is end v4.98 of this script, Thanks for use my script, I dont think im gonna back, And I don't want you to die this is a game and lose players because of me, And I have problems in life, And they found me and banned my main account forever(Delete) :(\nSo this is end of this script, Have fun👋👋👋👋👋.\n-----------------------------\nThis Message from [❤️modhacker#3877❤️].\n-----------------------------")
-
 function inputPassword()
     gg.alert("Enter password")
 
@@ -62,7 +60,7 @@ print("❤️Thanks for Use my Script👍")
 gg.sleep(200)
 gg.setVisible(true)
 function main()
-HDmenu = gg.choice({'💾 • Account','💉 • Hooks & Non-Hooks','💳 • Cards','📌️ • Credits','📜 • What new?','❌Exit❌'} ,nil, "Script Made By ❄️modhacker#3877❄️&🔥Onion#9272🔥 {64-Bit} v4.98")
+HDmenu = gg.choice({'💾 • Account','💉 • Hooks & Non-Hooks','💳 • Cards','📌️ • Credits','📜 • What new?','❌Exit❌'} ,nil, "Script Made By ❄️modhacker#3877❄️&🔥Onion#9272🔥 {64-Bit} v4.99")
 if HDmenu == nil then gg.setVisible(false) end
 if HDmenu == 1 then accounts() end
 if HDmenu == 2 then hooks() end
@@ -74,7 +72,7 @@ HOMEDM = -1
 end
 
 function news()
-local newsss = gg.alert("v9.82 🛠️Fixed & Added➕:\n----------\nHooks V2 Items X100 (FIX BUG) & Add Fast throw\n----------\nUpdate to v4.98\n----------\nRemove Bypass Ads from hooks to Account & fixed crash")
+local newsss = gg.alert("v3.99🛠️Fixed & Added➕:\n----------\nim back 😎\n----------\nUpdate to v4.99")
 if newsss == nil then main()
 else
 if newsss == 0 then main() end
@@ -955,13 +953,18 @@ gg.searchNumber('-1,459,520,515D;-1.13700539e-13F;-1.01075885e-28F:17', gg.TYPE_
 gg.getResults(69, nil, nil, nil, nil, nil, nil, nil, nil)
 gg.editAll('-698416192',gg.TYPE_DWORD)
 gg.clearResults()
-gg.searchNumber('-6.23076019e34F;-805,283,608D:13', gg.TYPE_DWORD) -- isSearchingAnyGame
-gg.getResults(99)
-gg.editAll('-763363296',gg.TYPE_DWORD)
-gg.clearResults()
-gg.searchNumber('-6.23076019e34F;-112,745,208D:17', gg.TYPE_DWORD, false, SIGH_QUAL, 0, -1) -- ret
-gg.getResults(69, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.searchNumber("-6.23076019e34F;-112,745,208D:17", gg.TYPE_DWORD) -- isSearchingAnyGame
+gg.refineNumber("-112,745,208", gg.TYPE_DWORD)
+gg.getResults(1)
 gg.editAll('-698416192',gg.TYPE_DWORD)
+x = gg.getResults(1)
+local t = {}
+t[1] = {}
+t[1].address = x[1].address + 0x-4
+t[1].flags = gg.TYPE_DWORD
+t[1].value = -763363296
+t[1].freeze = false
+gg.setValues(t)
 gg.toast('⏲️Bypass Ads⏲️ | ON')
 dc = " | 🟢"
 elseif dc == " | 🟢" then
