@@ -4,7 +4,7 @@
 function inputPassword()
     gg.alert("Enter password")
 
-    local result = gg.prompt({"Enter Password or dm modhacker#3877"}, {"NotFreeHuh?"}, {"text"})
+    local result = gg.prompt({"Enter Password or discord modhacker#3877"}, {"ez"}, {"text"})
 
     if result == nil then
         gg.alert("Script terminated by user modhacker#3877")
@@ -16,7 +16,7 @@ function inputPassword()
 end
 
 function validatePassword(password)
-    local savedPassword = "NotFreeHuh?"
+    local savedPassword = "ez"
 
     if password:match("[^%w]") then
         return false
