@@ -1,0 +1,2625 @@
+local info = gg.getTargetInfo() 
+local function fileExists(file_path)
+    local file = io.open(file_path, "r")
+    if file then
+        io.close(file)
+        return true
+    else
+        return false
+    end
+end
+gg.toast("%100")
+function StartConfigs()
+local gg_EXT_STORAGE = gg.EXT_STORAGE or "/sdcard"
+local configFilePath = gg_EXT_STORAGE .. "/config_v1.lua"
+
+local chunk, err = loadfile(configFilePath)
+if chunk then
+    local BB, BA, BL, LT, MI, CU, FSS, BO, FB, IB, AC, ASS, SR, UD, CP, MF, BF, TT, FT, IG, SP, XR1, XR2, SK6, SK5, SK4, SK3, SK2, SK1 = chunk()
+    
+    if BB == 1 then bypassban()  end gg.setVisible(false)
+    if BA == 1 then ads() end gg.setVisible(false)
+    if BL == 1 then PasswordR() end gg.setVisible(false)
+    if LT == 1 then Longname() end gg.setVisible(false)
+    if MI == 1 then Longmessage() end gg.setVisible(false)
+    if CU == 1 then cardUpgrade() end gg.setVisible(false)
+    if FSS == 1 then FS() end gg.setVisible(false)
+    if BO == 1 then ASA() end gg.setVisible(false)
+    if FB == 1 then BSB() end gg.setVisible(false)
+    if IB == 1 then CSC() end gg.setVisible(false)
+    if AC == 1 then XHX() end gg.setVisible(false)
+    if ASS == 1 then AS() end gg.setVisible(false)
+    if SR == 1 then headstun() end gg.setVisible(false)
+    if UD == 1 then unitem() end gg.setVisible(false)
+    if CP == 1 then powers() end gg.setVisible(false)
+    if MF == 1 then mines() end gg.setVisible(false)
+    if BF == 1 then fences() end gg.setVisible(false)
+    if TT == 1 then taunt() end gg.setVisible(false)
+    if FT == 1 then tfast() end gg.setVisible(false)
+    if IG == 1 then greet() end gg.setVisible(false)
+    if SP == 1 then showMC() end gg.setVisible(false)
+    if XR1 == 1 then xray1() end gg.setVisible(false)
+    if XR2 == 1 then xray2() end gg.setVisible(false)
+    if SK6 == 1 then INF() end gg.setVisible(false)
+    if SK5 == 1 then VERYSLOW() end gg.setVisible(false)
+    if SK4 == 1 then SLOW() end gg.setVisible(false)
+    if SK3 == 1 then SLOW75() end gg.setVisible(false)
+    if SK2 == 1 then SLOWL() end gg.setVisible(false)
+    if SK1 == 1 then NORMAL() end gg.setVisible(false)
+else
+    gg.alert("You didnt create 🎬Config🎬")
+end
+end
+
+local localConfigFile = gg.EXT_STORAGE .. "/GuardianPassConfig.DoNotDelete"
+
+local function loadConfigFile()
+    local data = {}
+    local dataFunc, err = loadfile(localConfigFile)
+    if dataFunc then
+        local success, loadedData = pcall(dataFunc)
+        if success and type(loadedData) == "table" then
+            data = loadedData
+        else
+            print("Error loading config file:", loadedData)
+        end
+    else
+        print("Error loading config file:", err)
+    end
+    return data
+end
+
+local function saveConfigFile(data)
+    local success = gg.saveVariable(data, localConfigFile)
+    if not success then
+    end
+end
+
+local function Login()
+    gg.setVisible(false)
+    local password = "Yosef_is_great"
+    local gg_EXT_STORAGE = gg.EXT_STORAGE or "/sdcard"
+    local configFilePath = gg_EXT_STORAGE .. "/config_v1.lua"
+    local userInput = loadConfigFile()
+    local CheckConfig = ""
+    if fileExists(configFilePath) then
+        CheckConfig = "✅Found✅"
+    else
+        CheckConfig = "❌Not Found❌"
+    end
+    while true do
+        local result = gg.prompt({"Type password", "load config file\n" .. CheckConfig}, userInput, {"text", "checkbox"})
+        if result then
+            userInput = result
+            saveConfigFile(userInput)
+            if userInput[1] ~= password then
+                local failedLoginHandler = gg.alert("!!✘ Wrong password ✘!!", "Try Again", nil, "Exit")
+                if failedLoginHandler == 1 then
+                else
+                    print("👏 Try again after you get the password 👏")
+                    os.exit()
+                end
+            else
+                gg.setVisible(false)
+                gg.clearResults()
+                gg.clearList()
+                print("❤️Thanks for Use my Script👍")
+                gg.sleep(200)
+                gg.setVisible(true)
+                break
+            end
+        else
+            return Login()
+        end
+    end
+    return userInput
+end
+
+function config()
+huhe = gg.choice({"1 •『Create a file config』", "2 •『Back』"}, nil, "When script start, Automatic functions start without press anything!")
+    if huhe == nil then 
+        main()
+    else
+        if huhe == 1 then NewConfig() end
+        HOMEDM = -1 
+    end
+end
+
+function NewConfig()
+local gg_EXT_STORAGE = gg.EXT_STORAGE or "/sdcard"
+
+local config = [[
+-- Your config, when script start Automatic active those functions
+-- 0 = false / Ignore
+-- 1 = true
+
+-- Account
+BB = 0 -- Bypass ban
+BA = 0 -- Bypass Ads
+BL = 0 -- Bypass Lock Room
+LT = 0 -- Long text
+MI = 0 -- Infinite message
+CU = 0 -- Cards Upgrade
+FSS = 0 -- Fashion Show
+
+-- Cards
+BO = 0 -- Blackout
+FB = 0 -- Flashbang
+IB = 0 -- Ice bomb
+AC = 0 -- Anti-Curse
+ASS = 0 -- Anti-Smoke
+
+-- Hooks
+SR = 0 -- Stun Resistance: Bombs thrown at your head don't stun
+UD = 0 -- Undestroyable Items: Collect quickly before anticheat
+CP = 0 -- Power Bomb 0: Use after cooldown (cards)
+MF = 0 -- No Mines Found: Does not activate mines
+BF = 0 -- Bypass Fences: You can walk through them
+TT = 0 -- Taunt Teleport: Fake lag 50% fixed
+FT = 0 -- Fast Throw: Not very fast
+IG = 0 -- Infinite Greetings: Spam greetings with no cooldown
+SP = 0 -- Show Player information: Cards, Medals, bombs levels
+
+-- Xray, Please Choose one!
+XR1 = 0 -- V1 : Show Everything, like: Door, Wall, Items
+XR2 = 0 -- V2 : Show only items
+
+-- Smoke, Please Choose one!
+SK6 = 0 -- 99999.0s (Inf)
+SK5 = 0 -- 3.0s (Very slow)
+SK4 = 0 -- 2.0s (Slow)
+SK3 = 0 -- 1.5s (Slow 75%)
+SK2 = 0 -- 1.0s (Slow little)
+SK1 = 0 -- 0.5s (Normal)
+
+return BB, BA, BL, LT, MI, CU, FSS, BO, FB, IB, AC, ASS, SR, UD, CP, MF, BF, TT, FT, IG, SP, XR1, XR2, SK6, SK5, SK4, SK3, SK2, SK1 -- DO NOT EDIT THIS
+]]
+
+local function fileExists(filename)
+    local file = io.open(filename, "r")
+    if file then
+        file:close()
+        return true
+    else
+        return false
+    end
+end
+
+local function writeConfigFile(filename, content)
+    local file_path = gg_EXT_STORAGE .. "/" .. filename
+
+    if fileExists(file_path) then
+        local confirm = gg.alert("⚠️There is already a config file⚠️, at:\n\n" .. file_path .. "\n\n?Do you want to Create a New One?", "Yes", "No")
+        if confirm == 2 then
+            return nil
+        end
+    end
+
+    local file = io.open(file_path, "w")
+    if file then
+        file:write(content)
+        file:close()
+        print("Config file created Successfully! at:\n\n" .. file_path)
+        return file_path
+    else
+        print("Error creating configuration file.")
+        return nil
+    end
+end
+
+local config_path = writeConfigFile("config_v1.lua", config)
+
+if config_path then
+    gg.alert("Config file created at:\n" .. config_path)
+end
+end
+
+function tilecolor_main()
+    haha = gg.choice({"1 •『🌍Change All in one texture🖌️』", "2 •『🆔Change Some texture ID🖌️』", "3 •『🖼️ Edit Hidden Maps in Public Room 🔍 』", "4 •『Back』"}, nil, "▁ ▂ ▄ ▅ ▆ ▇ █ [ Requests 🆔 ] █ ▇ ▆ ▅ ▄ ▂ ▁\n             ⭐The values will be Save⭐")
+    if haha == nil then 
+        main()
+    else
+        if haha == 1 then tilecolor_menu1() end
+        if haha == 2 then tilecolor_menu2() end
+        if haha == 3 then gg.alert("Coming Soon :D....") return main() end
+        if haha == 4 then return main() end
+        HOMEDM = -1 
+    end
+end
+
+function editmap()
+gg.alert("still on test buddy")
+end
+
+function alledit(textureID)
+    local AddValueAll = 8192 + textureID
+
+    gg.setRanges(gg.REGION_CODE_APP)
+    gg.searchNumber("18,025W;12,428W:3", gg.TYPE_WORD)
+    gg.refineNumber("12428", gg.TYPE_WORD)
+    local r = gg.getResults(1)
+    gg.clearResults()
+
+    if #r > 0 then
+        local mtt = {}
+        mtt[1] = {}
+        mtt[2] = {}
+        mtt[1].address = r[1].address + 0x2C
+        mtt[1].flags = gg.TYPE_WORD
+        mtt[1].value = AddValueAll
+        mtt[2].address = r[1].address + 0x2E
+        mtt[2].flags = gg.TYPE_WORD
+        mtt[2].value = 18288
+        gg.setValues(mtt)
+        gg.clearResults()
+        gg.toast("✓Texture ID: "..textureID.." ✓")
+        main()
+    else
+        gg.toast("✘No results found✘")
+    end
+end
+
+function tilecolor_menu1()
+    local localConfigFilee = gg.EXT_STORAGE .. "/GuardianTileConfig.1DoNotDelete"
+
+    local function loadConfigFilee()
+        local dataa = {}
+        local dataFuncc = loadfile(localConfigFilee)
+        if dataFuncc then
+            dataa[1] = dataFuncc()
+            dataa[2] = nil
+            dataa[3] = nil
+        end
+        return dataa
+    end
+
+    local function saveConfigFilee(dataa)
+        gg.saveVariable(dataa, localConfigFilee)
+    end
+
+    local dataa = loadConfigFilee()
+
+    local tilemodel = gg.prompt(
+        {"Input your Favorite texture 🆔       |       Return/Normal = 0 ;[0;47]", "[ Back = Cancel ]\nno active anything"}, 
+        dataa,
+        {[1] = 'number', [2] = 'checkbox'}
+    )
+
+    if tilemodel == nil then 
+        tilecolor_main()
+        return
+    end
+    
+    saveConfigFilee(tilemodel)
+
+    if tilemodel[2] then 
+        tilecolor_main()
+        return
+    end
+
+    local textureID = tonumber(tilemodel[1])
+
+    if textureID == 0 then
+        AllreturnValue()
+        return
+    elseif textureID >= 1 then
+        alledit(textureID)
+        return
+    end
+end
+
+function AllreturnValue()
+gg.setVisible(false)
+gg.setRanges(gg.REGION_CODE_APP)
+    gg.searchNumber("18,025W;12,428W:3", gg.TYPE_WORD)
+    gg.refineNumber("12428", gg.TYPE_WORD)
+    local mr = gg.getResults(999)
+
+    if #mr > 0 then
+        local mt = {}
+        mt[1] = {}
+        mt[2] = {}
+        mt[1].address = mr[1].address + 0x2C
+        mt[1].flags = gg.TYPE_WORD
+        mt[1].value = 26688
+        mt[2].address = mr[1].address + 0x2E
+        mt[2].flags = gg.TYPE_WORD
+        mt[2].value = 28544
+        gg.setValues(mt)
+        gg.toast("✓Normal Texture✓")
+    else
+        gg.toast("✘No results found✘")
+    end
+end
+
+function tentEdit(tent_id)
+    if tent_id == nil then
+        gg.alert("Something Went Error")
+        return
+    end
+    local searchDone = false
+    
+    while not searchDone do
+    gg.setVisible(false)
+    local AddValuetent = 8192 + tent_id
+    gg.setRanges(gg.REGION_CODE_APP)
+    gg.searchNumber("-21,480W;536,888,835:3", gg.TYPE_DWORD)
+    gg.refineNumber("-21,480", gg.TYPE_WORD)
+    local mrr = gg.getResults(999)
+
+    if #mrr > 0 then
+        local mttt = {}
+        mttt[1] = {}
+        mttt[2] = {}
+        mttt[1].address = mrr[1].address - 0x12
+        mttt[1].flags = gg.TYPE_WORD
+        mttt[1].value = -16640 -- NOP
+        mttt[2].address = mrr[1].address - 0x10
+        mttt[2].flags = gg.TYPE_WORD
+        mttt[2].value = AddValuetent
+        gg.setValues(mttt)
+        gg.clearResults()
+        gg.toast("✓ Tent ID: "..tent_id.." ✓")
+        searchDone = true
+    else
+        gg.toast("✘No results found✘")
+        end
+    end
+end
+
+function backgEdit(background_id)
+    if background_id == nil then
+        gg.alert("Something Went Error")
+        return
+    end
+    local searchDone = false
+    
+    while not searchDone do
+    gg.setVisible(false)
+    local AddValuebackg = 8192 + background_id
+    gg.searchNumber("1,177,559,316;1,200,637,481:5", gg.TYPE_DWORD)
+    gg.refineNumber("1,200,637,481", gg.TYPE_DWORD)
+    local brg = gg.getResults(999)
+    
+    if #brg > 0 then
+        local backg = {}
+        backg[1] = {}
+        backg[2] = {}
+        backg[1].address = brg[1].address + 0x22
+        backg[1].flags = gg.TYPE_WORD
+        backg[1].value = -16640 -- NOP
+        backg[2].address = brg[1].address + 0x24
+        backg[2].flags = gg.TYPE_WORD
+        backg[2].value = AddValuebackg
+        gg.setValues(backg)
+        gg.clearResults()
+        gg.toast("✓ Background ID: "..background_id.." ✓")
+        searchDone = true
+    else
+        gg.toast("✘No results found✘")
+        end
+    end
+end
+
+function stoneEdit(stone_id)
+    if stone_id == nil then
+        gg.alert("Something Went Error")
+        return
+    end
+    local searchDone = false
+    
+    while not searchDone do
+    local AddValuestone = 8192 + stone_id
+    gg.setVisible(false)
+    gg.setRanges(gg.REGION_CODE_APP)
+    gg.searchNumber("1,174,514,705;17,921W:3", gg.TYPE_DWORD)
+    gg.refineNumber("1,174,514,705", gg.TYPE_DWORD)
+    local mrrs = gg.getResults(999)
+    
+    if #mrrs > 0 then
+        local mttts = {}
+        mttts[1] = {}
+        mttts[2] = {}
+        mttts[1].address = mrrs[1].address - 0x4
+        mttts[1].flags = gg.TYPE_WORD
+        mttts[1].value = -16640 -- NOP
+        mttts[2].address = mrrs[1].address - 0x2
+        mttts[2].flags = gg.TYPE_WORD
+        mttts[2].value = AddValuestone
+        gg.setValues(mttts)
+        gg.clearResults()
+        gg.toast("✓ Stone ID: "..stone_id.." ✓")
+        searchDone = true
+    else
+        gg.toast("✘No results found✘")
+        end
+    end
+end
+
+function floorEdit(floor_id)
+    if floor_id == nil then
+        gg.alert("Something Went Error")
+        return
+    end
+    local searchDone = false
+    
+    while not searchDone do
+    local AddValuefloor = 8192 + floor_id
+    gg.setVisible(false)
+    gg.setRanges(gg.REGION_CODE_APP)
+    gg.searchNumber("-1,878,722,352;-1,861,401,048:5", gg.TYPE_DWORD)
+    gg.refineNumber("-1,861,401,048", gg.TYPE_DWORD)
+    local mrrf = gg.getResults(999)
+
+    if #mrrf > 0 then
+        local mtttf = {}
+        mtttf[1] = {}
+        mtttf[2] = {}
+        mtttf[1].address = mrrf[1].address + 0x8
+        mtttf[1].flags = gg.TYPE_WORD
+        mtttf[1].value = -16640 -- NOP
+        mtttf[2].address = mrrf[1].address + 0xA
+        mtttf[2].flags = gg.TYPE_WORD
+        mtttf[2].value = AddValuefloor
+        gg.setValues(mtttf)
+        gg.clearResults()
+        gg.toast("✓ Floor ID: "..floor_id.." ✓")
+        searchDone = true
+    else
+        gg.toast("✘No results found✘")
+        end
+    end
+end
+
+function tilecolor_menu2()
+local localConfigFileee = gg.EXT_STORAGE .. "/GuardianTileConfig.2DoNotDelete"
+
+    local function loadConfigFileee()
+        local dataaa = {}
+        local dataFunccc = loadfile(localConfigFileee)
+        if dataFunccc then
+            dataaa = dataFunccc()
+        end
+        return dataaa
+    end
+
+    local function saveConfigFileee(dataaa)
+        gg.saveVariable(dataaa, localConfigFileee)
+    end
+
+    local dataaa = loadConfigFileee()
+    
+    local hhh = gg.prompt({
+        "Stone 🆔       |       ;[1;47]", --1 addspritebatchfile / addObjectSprite ^ gettiletype
+        "Tent 🆔    |     ;[1;47] ", --2 addObjectSprite
+        "Floor 🆔    |    ;[1;47] ", --3 initTileSprites
+        "Background 🆔    |    ;[0;47]", --4
+        "✨Background Magick✨    |    Return/Normal = 0\n1 = 🌠Black Magick🌠;[0;1]", --5
+        "[ Back = Cancel ]\nno active anything" --6
+    }, dataaa, {[1] = 'number', [2] = 'number', [3] = 'number', [4] = 'number', [5] = 'number', [6] = 'checkbox'})
+
+    if hhh == nil then
+        tilecolor_main()
+        return
+    end
+
+    saveConfigFileee(hhh)
+
+    if hhh[6] then
+        tilecolor_main()
+        return
+    end
+    
+    local stone_id = tonumber(hhh[1])
+    local tent_id = tonumber(hhh[2])
+    local floor_id = tonumber(hhh[3])
+    local background_id = tonumber(hhh[4])
+    local background_magic_id = tonumber(hhh[5])
+
+    if stone_id and stone_id > 0 then
+        stoneEdit(stone_id)
+    else
+        stoneNormal()
+    end
+
+    if floor_id and floor_id > 0 then
+        floorEdit(floor_id)
+    else
+        floorNormal()
+    end
+
+    if tent_id and tent_id > 0 then
+        tentEdit(tent_id)
+    else
+        tentNormal()
+    end
+
+    if background_id and background_id > 0 then
+        backgEdit(background_id)
+    else
+        backgNormal()
+    end
+
+    if background_magic_id == 0 then
+        backmNormal()
+    elseif background_magic_id == 1 then
+        backmBlack()
+    end
+end
+
+function backmNormal()
+    local searchDone = false
+    
+    while not searchDone do
+        gg.setVisible(false)
+        gg.searchNumber("1,177,559,316;1,200,637,481:5", gg.TYPE_DWORD)
+        gg.refineNumber("1,200,637,481", gg.TYPE_DWORD)
+        local mrrbr = gg.getResults(999)
+        
+        if #mrrbr > 0 then
+            local mtttfbr = {}
+            mtttfbr[1] = {}
+            mtttfbr[1].address = mrrbr[1].address + 0x3A
+            mtttfbr[1].flags = gg.TYPE_WORD
+            mtttfbr[1].value = -19688
+            gg.setValues(mtttfbr)
+            gg.clearResults()
+            gg.toast("✓Background-Magic : False✓")
+            searchDone = true
+            main()
+        else
+            gg.toast("✘No results found✘")
+            gg.sleep(1000)
+        end
+    end
+end
+
+function backmBlack()
+    local searchDone = false
+    
+    while not searchDone do
+        gg.setVisible(false)
+        gg.searchNumber("1,177,559,316;1,200,637,481:5", gg.TYPE_DWORD)
+        gg.refineNumber("1,200,637,481", gg.TYPE_DWORD)
+        local mrrfb = gg.getResults(999)
+        
+        if #mrrfb > 0 then
+            local mtttfb = {}
+            mtttfb[1] = {}
+            mtttfb[1].address = mrrfb[1].address + 0x3A
+            mtttfb[1].flags = gg.TYPE_WORD
+            mtttfb[1].value = -16640
+            gg.setValues(mtttfb)
+            gg.clearResults()
+            gg.toast("✓Background-Magic : True✓")
+            searchDone = true
+            main()
+        else
+            gg.toast("✘No results found✘")
+            gg.sleep(1000)
+        end
+    end
+end
+
+function floorNormal()
+    local searchDone = false
+    
+    while not searchDone do
+        gg.setVisible(false)
+        gg.setRanges(gg.REGION_CODE_APP)
+        gg.searchNumber("-1,878,722,352;-1,861,401,048:5", gg.TYPE_DWORD)
+        gg.refineNumber("-1,861,401,048", gg.TYPE_DWORD)
+        local mrrfr = gg.getResults(999)
+        
+        if #mrrfr > 0 then
+            local mtttfr = {}
+            mtttfr[1] = {}
+            mtttfr[2] = {}
+            mtttfr[1].address = mrrfr[1].address + 0x8
+            mtttfr[1].flags = gg.TYPE_WORD
+            mtttfr[1].value = -2588
+            mtttfr[2].address = mrrfr[1].address + 0xA
+            mtttfr[2].flags = gg.TYPE_WORD
+            mtttfr[2].value = -4610
+            gg.setValues(mtttfr)
+            gg.clearResults()
+            gg.toast("✓Normal Floor✓")
+            searchDone = true
+        else
+            gg.toast("✘No results found✘")
+            gg.sleep(1000)
+        end
+    end
+end
+
+function tentNormal()
+    local searchDone = false
+    
+    while not searchDone do
+        gg.setVisible(false)
+        gg.setRanges(gg.REGION_CODE_APP)
+        gg.searchNumber("-21,480W;536,888,835:3", gg.TYPE_DWORD)
+        gg.refineNumber("-21,480", gg.TYPE_WORD)
+        local mrrd = gg.getResults(999)
+        
+        if #mrrd > 0 then
+            local mtttd = {}
+            mtttd[1] = {}
+            mtttd[2] = {}
+            mtttd[1].address = mrrd[1].address - 0x12
+            mtttd[1].flags = gg.TYPE_WORD
+            mtttd[1].value = -2591
+            mtttd[2].address = mrrd[1].address - 0x10
+            mtttd[2].flags = gg.TYPE_WORD
+            mtttd[2].value = -4218
+            gg.setValues(mtttd)
+            gg.clearResults()
+            gg.toast("✓Normal Tent✓")
+            searchDone = true
+        else
+            gg.toast("✘No results found✘")
+            gg.sleep(1000)
+        end
+    end
+end
+
+function backgNormal()
+    local searchDone = false
+    
+    while not searchDone do
+        gg.setVisible(false)
+        gg.searchNumber("1,177,559,316;1,200,637,481:5", gg.TYPE_DWORD)
+        gg.refineNumber("1,200,637,481", gg.TYPE_DWORD)
+        local brgn = gg.getResults(999)
+        
+        if #brgn > 0 then
+            local backgn = {}
+            backgn[1] = {}
+            backgn[2] = {}
+            backgn[1].address = brgn[1].address + 0x22
+            backgn[1].flags = gg.TYPE_WORD
+            backgn[1].value = -2560
+            backgn[2].address = brgn[1].address + 0x24
+            backgn[2].flags = gg.TYPE_WORD
+            backgn[2].value = -5750
+            gg.setValues(backgn)
+            gg.clearResults()
+            gg.toast("✓Normal Background✓")
+            searchDone = true
+        else
+            gg.toast("✘No results found✘")
+            gg.sleep(1000)
+        end
+    end
+end
+
+function stoneNormal()
+local searchDone = false
+    
+    while not searchDone do
+    gg.setVisible(false)
+    gg.setRanges(gg.REGION_CODE_APP)
+    gg.searchNumber("1,174,514,705;17,921W:3", gg.TYPE_DWORD)
+    gg.refineNumber("1,174,514,705", gg.TYPE_DWORD)
+    local mrrsr = gg.getResults(999)
+    
+    if #mrrsr > 0 then
+        local mtttsr = {}
+        mtttsr[1] = {}
+        mtttsr[2] = {}
+        mtttsr[1].address = mrrsr[1].address - 0x4
+        mtttsr[1].flags = gg.TYPE_WORD
+        mtttsr[1].value = -2611
+        mtttsr[2].address = mrrsr[1].address - 0x2
+        mtttsr[2].flags = gg.TYPE_WORD
+        mtttsr[2].value = -4682
+        gg.setValues(mtttsr)
+        gg.clearResults()
+        gg.toast("✓Normal Stone✓")
+        searchDone = true
+    else
+        gg.toast("✘No results found✘")
+        end
+    end
+end
+
+function news()
+local newsss = gg.alert("➕Added➕:\nI forget 😅")
+if newsss == nil then main()
+else
+if newsss == 0 then main() end
+if newsss == 1 then main() end
+end
+end
+
+--[[function updateScript()
+  local currentVersion = "1.3"
+  local versiongame = gg.makeRequest('https://pastebin.com/raw/x5xy91ee').content
+  local serverVersionContent = gg.makeRequest("https://pastebin.com/raw/KAbSNTYe").content
+  local serverVersion = tonumber(serverVersionContent)
+ 
+  if tonumber(currentVersion) < serverVersion then
+    local choice = gg.choice({"📃 Download", "✖️ Cancel"}, nil, "⚙️ A new version "..serverVersion)
+ 
+    if choice == 1 then
+      local url = 'https://pastebin.com/raw/mtQ7J8es'
+      local response = gg.makeRequest(url)
+      if not response.content then
+        gg.alert('❌ An error occurred during loading')
+        os.exit()
+      end
+ 
+      local scriptContent = response.content
+ 
+      local dir = gg.EXT_STORAGE .. '/'..versiongame..'_BomberFriends_v'..serverVersionContent..'_.lua'
+      local file = io.open(dir, "w+")
+      file:write(scriptContent)
+      file:close()
+ 
+      gg.alert("⚙️ Update completed!\n\nℹ️Name: "..versiongame.."_BomberFriends_v"..serverVersionContent.."_.lua\n👉Memory: /storage/emulated/0/\nYou Can Delete Old")
+ 
+      local updatedScript = load(scriptContent)
+      updatedScript()
+      
+    elseif choice == 2 then
+      gg.alert("You are now use old version")
+      main()
+    else
+      gg.alert("⚠️ Please make a valid choice")
+      updateScript()
+    end
+  else
+    gg.alert("Script version : "..currentVersion.."\nNo Need Update")
+    os.remove("5.11_BomberFriends_v1.2_.lua")
+    main()
+  end
+end]]
+
+function accounts()
+account=gg.multiChoice({
+"❌Bypass Ads v2⏳, You can open chest and more",
+"🃏Cards V2💳, Click match button to see" .. dx,
+"♾️Long Text♾️, Your: Name/Room/PassRoom.",
+"♾️Infinite message📝, ClanMessage/ClanDescription/ChatMessage.",
+"🎯Bypass Ban🛡️, you cant play matchs 😭",
+"🥷Dungeon Run🥷, claims rewards",
+"❔Unknown dialog📄, Press Your profile to see",
+"🎫Golden Wheel spin🎫, skip ad. Maybe give you luck🍀?",
+"🤵Fashion Show📷, 200x Points for free!",
+"⛔Bypass Lock Room🔒, You can join any Room",
+"↩️Back↩️",
+} ,nil, "🏦Account🏦 | ON = 🟢 / OFF = 🔴")
+
+if account == nil then main()
+else
+if account[1] == true then ads() end
+if account[2] == true then cardUpgrade() end
+if account[3] == true then Longname() end
+if account[4] == true then Longmessage() end
+if account[5] == true then bypassban() end
+if account[6] == true then DR() end -- isRewardClaimable
+if account[7] == true then Dialog() end
+if account[8] == true then goldspin() end
+if account[9] == true then FS() end
+if account[10] ==true then PasswordR() end
+if account[11] == true then main() end end
+HOMEDM=-1 end
+
+PasswordRR = "17,952W;10,240W;42,268,888D:15"
+function PasswordR()
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(PasswordRR, gg.TYPE_DWORD)
+gg.refineNumber("10,240", gg.TYPE_WORD)
+gg.getResults("99")
+gg.editAll("8193", gg.TYPE_WORD)
+gg.clearResults()
+gg.toast("🔒Bypass Lock Room🚫 | ON")
+end
+
+local DialogCostumeComp = "-19,472W;-4,017W:3"
+local DialogBase = "10,240W;-22,503W:7"
+local CostumeCompetitionHelpers = "h F0 B5 03 AF 2D E9 80 0F 2D ED 0C 3B 80"
+
+function FS()
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(DialogCostumeComp, gg.TYPE_WORD) -- DialogCostumeComp::update_OverrideThis (fashion show) season pass free
+gg.refineNumber("-19,472", gg.TYPE_WORD)
+gg.getResults(99)
+gg.editAll("-16,640", gg.TYPE_WORD)
+gg.clearResults()
+gg.searchNumber(DialogBase, gg.TYPE_WORD) -- DialogBase::addRewardAdButton
+gg.refineNumber("10240", gg.TYPE_WORD)
+gg.getResults(99)
+gg.editAll("8,193", gg.TYPE_WORD)
+gg.clearResults()
+gg.searchNumber(CostumeCompetitionHelpers, gg.TYPE_BYTE) -- CostumeCompetitionHelpers::countPointsOfCurrentOutfit
+gg.getResults(99)
+gg.editAll("h 64 20 70 47 2D E9 80 0F 2D ED 0C 3B 80", gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("🤵Fashion Show📷 | ON")
+end
+
+local gold_spin = "-1,836W;-1,919W;17,952W;-16,976W:11"
+
+function goldspin()
+gg.setVisible(false)
+gg.setRanges(gg.REGION_CODE_APP)
+    gg.searchNumber(gold_spin, gg.TYPE_WORD)
+    gg.refineNumber("-1836", gg.TYPE_WORD)
+    local goldt = gg.getResults(999)
+
+    if #goldt > 0 then
+        local gold = {}
+        gold[1] = {}
+        gold[2] = {}
+        gold[1].address = goldt[1].address - 0x4
+        gold[1].flags = gg.TYPE_WORD
+        gold[1].value = -16640
+        gold[2].address = goldt[1].address - 0x2
+        gold[2].flags = gg.TYPE_WORD
+        gold[2].value = 8193
+        gg.setValues(gold)
+        gg.toast("Golden Wheel spin | ON")
+    else
+        gg.toast("✘No results found✘")
+    end
+end
+
+Dialog_offset = "8,704W;18,328W;-8,190W;10,240W:15"
+
+function Dialog()
+  gg.setRanges(gg.REGION_CODE_APP)
+  gg.searchNumber(Dialog_offset, gg.TYPE_WORD)
+  gg.refineNumber("8704", gg.TYPE_WORD)
+  gg.getResults(999)
+  gg.editAll("8705", gg.TYPE_WORD)
+  gg.toast("Unknown dialog | ON")
+end
+
+local dragon1 = "h 01 20 00 E0 00 20 29 68 01 9A 89 1A 02"
+
+function DR()
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(dragon1, gg.TYPE_BYTE) gg.setVisible(false)
+gg.getResults(100)
+gg.editAll('h 01 20 00 E0 01 20 29 68 01 9A 89 1A 02', gg.TYPE_BYTE) gg.setVisible(false)
+gg.clearResults()
+gg.toast("Dungeon Run | ON")
+end
+
+local messagec = "h 3221 02AA"
+local chatm = "h 2D21 03"
+local descriptionc = "h 6421 0BAA"
+
+function Longmessage()
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(messagec, gg.TYPE_BYTE) gg.setVisible(false) -- M_C
+gg.getResults(9999)
+gg.editAll('h 0100 02AA', gg.TYPE_BYTE)
+gg.clearResults()
+gg.searchNumber(chatm, gg.TYPE_BYTE) gg.setVisible(false) -- CH_M
+gg.getResults(9999)
+gg.editAll('h 0100 03', gg.TYPE_BYTE)
+gg.clearResults()
+gg.searchNumber(descriptionc, gg.TYPE_BYTE) gg.setVisible(false) -- D_C
+gg.getResults(9999)
+gg.editAll('h 0100 0BAA', gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("♾️Infinite message📝 | ON")
+end
+
+
+local bypassn = "h 00 90 F8 3C 02"
+local bypassn2 = "h F0B5 03AF 2DE9000F 97 B0 80 46 7C 48 78"
+function bypassban()
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(bypassn, gg.TYPE_BYTE)
+gg.getResults(999)
+gg.editAll('h 00 00 20 70 47', gg.TYPE_BYTE)
+gg.clearResults()
+gg.searchNumber(bypassn2, gg.TYPE_BYTE)
+gg.getResults(999)
+gg.editAll('h 7047 03AF 2DE9000F 97 B0 80 46 7C 48 78', gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("Bypass Ban | ON")
+end
+
+local longn = "10W;17W;40W;12W:13"
+
+function Longname()
+gg.setRanges(gg.REGION_C_DATA)
+gg.searchNumber(longn, gg.TYPE_WORD)
+gg.getResults(99)
+gg.editAll("1000", gg.TYPE_WORD)
+gg.clearResults()
+gg.toast("♾️Long text | ON")
+end
+
+dx = " | 🔴"
+
+function cardUpgrade()
+    if dx == " | 🔴" then
+        gg.setRanges(gg.REGION_CODE_APP)
+        gg.searchNumber("-1,115,652,544;-17,024W:3", gg.TYPE_DWORD)
+        gg.refineNumber("-1,115,652,544", gg.TYPE_DWORD)
+        local cud = gg.getResults(1)
+        if #cud > 0 then
+            local cut = {}
+            cut[1] = {}
+            cut[1].address = cud[1].address - 0x8
+            cut[1].flags = gg.TYPE_DWORD
+            cut[1].value = 1198530561
+            cut[1].freeze = false
+            gg.setValues(cut)
+            gg.clearResults()
+            gg.toast("🏦Cards⬆️ | ON")
+            dx = " | 🟢"
+        else
+            gg.clearResults()
+            gg.toast("! No results found for Cards ON !")
+        end
+    elseif dx == " | 🟢" then
+        gg.setRanges(gg.REGION_CODE_APP)
+        gg.searchNumber("-1,115,652,544;-17,024W:3", gg.TYPE_DWORD)
+        gg.refineNumber("-1,115,652,544", gg.TYPE_DWORD)
+        local cudr = gg.getResults(1)
+        if #cudr > 0 then
+            local cutr = {}
+            cutr[1] = {}
+            cutr[1].address = cudr[1].address - 0x8
+            cutr[1].flags = gg.TYPE_DWORD
+            cutr[1].value = 1181726080
+            cutr[1].freeze = false
+            gg.setValues(cutr)
+            gg.clearResults()
+            gg.toast("🏦Cards⬆️ | OFF")
+            dx = " | 🔴"
+        else
+            gg.clearResults()
+            gg.toast("! No results found for Cards OFF !")
+        end
+    end
+end
+
+function regoins()
+regoine=gg.choice({
+"💳Cards v1💳 (Normal, Some of them not works)",
+"💳Cards v2💳 (Fast)",
+"[↩️Back↩️]",
+} ,nil, "Cards :)")
+if regoine == nil then main() end
+if regoine == 1 then regoinss() end
+if regoine == 2 then cards2() end
+if regoine == 3 then main() end
+end
+
+function cards2()
+menun=gg.multiChoice({
+"🖤Blackout🖤",
+"🌞Flashbang🌞",
+"🧊Ice bomb🧊",
+"💀Anti-Curse💀",
+"🟩Anti-Slime🤢",
+"[↩️Back↩️]",
+} ,nil, "(Not Like Cards v1), this is better v2 (More Coming Soon 🐐)")
+
+if menun == nil then regoins()
+else
+if menun[1] == true then ASA() end
+if menun[2] == true then BSB() end
+if menun[3] == true then CSC() end
+if menun[4] == true then XHX() end
+if menun[5] == true then AS() end
+if menun[6] == true then regoins() end end
+end
+
+local aslime = "9,500,880;4,454,544:5"
+local aslimeOld = "-0.5028963089F;0.30000001192F:5"
+local acurse = "h 40 F0 01 00 19 38 B0 FA"
+local ablackout = 'h B1 EE 08 0A 05'
+local aflashbang = 'h1B 48 FF 21'
+local aicebomb = 'h D0 F8 14 04 08 B1'
+
+function AS()
+gg.clearResults()
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber("9,500,880;4,454,544:5", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("9500880", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 1)
+gg.setVisible(false)
+if gg.getResultsCount() > 0 then
+local addr = gg.getResults(1)[1].address
+local values = {{
+	address = addr - 0x4,
+	flags = gg.TYPE_FLOAT,
+}}
+values = gg.getValues(values)
+gg.clearResults()
+local input = gg.prompt({"Set SPEED slime movement: 🟩Anti-Slime🤢\n---------------\n1 = Normal slime speed x0.3\n2 = x0.4 Speed\n3 = x0.5 Speed\n4 = x0.6 Speed\n---------------\n⚠️SERVER KICK LIMTIED SPEED⚠️:\n5 = x0.7 Speed\n6 = x0.8 Speed\n7 = x0.9 Speed\n8 = x1.0 Speed[1;8]"}, {1}, {'number'})
+	if input == nil then return nil
+	else
+		local value = tonumber(input[1])
+		if value == 1 then value = 0.3
+		elseif value == 2 then value = 0.4
+		elseif value == 3 then value = 0.5
+		elseif value == 4 then value = 0.6
+		elseif value == 5 then value = 0.7
+		elseif value == 6 then value = 0.8
+		elseif value == 7 then value = 0.9
+        elseif value == 8 then value = 1
+		end
+		values[1].value = value
+		gg.setValues(values)
+		gg.toast("🟩Anti-Slime🤢 Speed: ".. value)
+	    end
+	else
+	    gg.alert("🟩Anti-Slime🤢 Not working, Sorry!")
+	end
+end
+--[[function AS()
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(aslime, gg.TYPE_FLOAT)
+gg.refineNumber("0.30000001192", gg.TYPE_FLOAT)
+gg.getResults(99)
+gg.editAll('1', gg.TYPE_FLOAT)
+gg.clearResults()
+gg.toast('🟩Anti-Slime🤢')
+end]]
+
+function XHX()
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(acurse, gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll('h 00 20 70 47 19 38 B0 FA', gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("💀Anti-Curse💀")
+end
+
+function ASA()
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(ablackout, gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll('B3 EE 0E 0A 05', gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("🖤blackout🖤")
+end
+
+function BSB()
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(aflashbang, gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll('h1B 48 00 21', gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("🌞Flashbang🌞")
+end
+
+function CSC()
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(aicebomb, gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll('h 00 20 70 47 08 B1', gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("🧊Ice bomb🧊")
+end
+
+function regoinss()
+regoin=gg.choice({
+"C_Alloc (Ca)",
+"Others (O)",
+"Anonymous (A)",
+"↩️Back↩️",
+} ,nil, "Choose Your Region Support")
+
+if regoin == nil then regoins() end
+if regoin == 1 then CAlloc() end
+if regoin == 2 then Others() end
+if regoin == 3 then Anonymous() end
+if regoin == 4 then regoins() end
+end
+
+function CAlloc()
+gg.setRanges(gg.REGION_C_ALLOC)
+local cal = gg.alert('✅C_Alloc✅','❌No❌','✅Yes✅')
+if cal == nil then main()
+else
+if cal == 0 then regoinss() end
+if cal == 1 then regoinss() end
+if cal == 2 then cards() end
+end
+end
+
+function Others()
+gg.setRanges(gg.REGION_OTHER)
+local oth = gg.alert('✅Others✅','❌No❌','✅Yes✅')
+if oth == nil then main()
+else
+if oth == 0 then regoinss() end
+if oth == 1 then regoinss() end
+if oth == 2 then cards() end
+end
+end
+
+function Anonymous()
+gg.setRanges(gg.REGION_ANONYMOUS)
+local anon = gg.alert('✅Anonymous✅','❌No❌','✅Yes✅')
+if anon == nil then main()
+else
+if anon == 0 then regoinss() end
+if anon == 1 then regoinss() end
+if anon == 2 then cards() end
+end
+end
+
+function hooks()
+    local hook = gg.multiChoice({
+        "⚛️ Invisible nuke 💣" .. dxx, --1
+        "♾️ Infinite Smoke🚬: No Explosion", --2
+        "👁️ X-Ray v1 & v2: Show items through walls", --3
+        "💫🕊️ Stun Resistance: Bombs thrown at your head don't stun".. dp, --4
+        "🛡️ Undestroyable Items: Collect quickly before anticheat" .. dy, --5
+        "💣 Power Bomb 0🔥: Use after cooldown" .. de,--6
+        "🚩 No Mines Found: Does not activate mines" .. di, --7
+        "🚧 Bypass Fences🚶: You can walk through them" .. ds, --8
+        "🕺 Taunt Teleport🕺🌀: Fake lag %50 fixed" .. dn, --9
+        "🪽 Fast Throw🪽🏃: Not very fast", --10
+        "🕊️💣 Throw Behind Fences 🚧🕊️💥: Coming later" .. dv, --11
+        --"🪪 Infinite Greetings🪪👋: Spam greetings with no cooldown" .. da, -- patched
+        "👀 Show Player information👀: Cards, Medals, bombs levels", --12
+        "💣 Always 0 Power Bomb🔥: No Cooldown", -- "💼 Items x100 💯: Collect over 100 items  -13
+        "☠️Disable Some Curses: disable slow bomb and more..", -- 15
+        "↩️ Back ↩️" --16
+    }, nil, "⚔️Hooks⚔️ | ON = 🟢 / OFF = 🔴")
+
+    if hook == nil then
+        main()
+        return
+    end
+
+    if hook[1] == true then nukes() end
+    if hook[2] == true then smoke() end
+    if hook[3] == true then xray() end
+    if hook[4] == true then headstun() end
+    if hook[5] == true then unitem() end
+    if hook[6] == true then powers() end
+    if hook[7] == true then mines() end
+    if hook[8] == true then fences() end
+    if hook[9] == true then taunt() end
+    if hook[10] == true then tfast() end
+    if hook[11] == true then toast("Coming soon...") end
+    --if hook[12] == true then greet() end
+    if hook[12] == true then showMC() end
+   -- if hook[14] == true then items() end
+    if hook[13] == true then powerV2() end
+    if hook[14] == true then cursepro() end
+    if hook[15] == true then main() end
+    HOMEDM = -1
+end
+
+local sendBomberEvent = "-22,527W;-8,096W:3"
+local GetSpeed = "10.79999923706F;1.20000004768F;0.40000000596F:9"
+local Checkifdropsbomb = "1,176,539,179D;-1,090,377,615D:9"
+local CheckIfPlayerHasCurseReturnEmptyIfNone = "-16,640W;-1,358,776,880D;-20,192W;17,924W:21"
+local CheckCollisionWithGhostOrSickPlayers = "-4,705W;1,174,768,174D:3"
+local MoveAndCollideImpl_trueIfMoved = "10,354W;-1,743,662,819D:3"
+
+function cursepro()
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(sendBomberEvent, gg.TYPE_WORD)
+  gg.refineNumber("-22527", gg.TYPE_WORD)
+  curse_1_send = gg.getResults(1)
+  local curse_send = {}
+  curse_send[1] = {}
+  curse_send[1].address = curse_1_send[1].address + 0x2A
+  curse_send[1].flags = gg.TYPE_DWORD
+  curse_send[1].value = 536919808
+  gg.setValues(curse_send)
+gg.clearResults()
+gg.searchNumber(GetSpeed, gg.TYPE_FLOAT)
+  gg.refineNumber("0.40000000596", gg.TYPE_FLOAT)
+  gg.getResults(99)
+  gg.editAll("1", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.searchNumber(Checkifdropsbomb, gg.TYPE_DWORD)
+  gg.refineNumber("-1090377615", gg.TYPE_DWORD)
+  curse_2_s = gg.getResults(1)
+  local curse_send2 = {}
+  curse_send2[1] = {}
+  curse_send2[2] = {}
+  curse_send2[3] = {}
+  curse_send2[4] = {}
+  curse_send2[1].address = curse_2_s[1].address - 0x4
+  curse_send2[1].flags = gg.TYPE_DWORD
+  curse_send2[1].value = 536919808
+  curse_send2[2].address = curse_2_s[1].address + 0x7E0
+  curse_send2[2].flags = gg.TYPE_DWORD
+  curse_send2[2].value = 536919808
+  curse_send2[3].address = curse_2_s[1].address + 0x7EE
+  curse_send2[3].flags = gg.TYPE_WORD
+  curse_send2[3].value = -16640
+  curse_send2[4].address = curse_2_s[1].address + 0x7F0
+  curse_send2[4].flags = gg.TYPE_WORD
+  curse_send2[4].value = 8193
+  gg.setValues(curse_send2)
+gg.clearResults()
+gg.searchNumber(CheckIfPlayerHasCurseReturnEmptyIfNone, gg.TYPE_DWORD)
+gg.refineNumber("-1,358,776,880", gg.TYPE_DWORD)
+gg.getResults(999)
+gg.editAll("1,198,530,560", gg.TYPE_DWORD)
+gg.clearResults()
+gg.searchNumber(CheckCollisionWithGhostOrSickPlayers, gg.TYPE_DWORD)
+  gg.refineNumber("-4705", gg.TYPE_WORD)
+  curse_3_s = gg.getResults(1)
+  local curse_send_z = {}
+  curse_send_z[1] = {}
+  curse_send_z[1].address = curse_3_s[1].address - 0x36
+  curse_send_z[1].flags = gg.TYPE_DWORD
+  curse_send_z[1].value = 1198530560
+  gg.setValues(curse_send_z)
+gg.clearResults()
+gg.searchNumber(MoveAndCollideImpl_trueIfMoved, gg.TYPE_DWORD)
+gg.refineNumber("10,354", gg.TYPE_WORD)
+gg.getResults(999)
+gg.editAll("8,193", gg.TYPE_WORD)
+gg.clearResults()
+gg.toast("Disable Some Curses | ON")
+end
+
+local bombNfire = "-1,358,776,912;1,174,675,714:5"
+local bomb0fire = "1,198,530,560;1,174,675,714:5"
+local bomb1fire = "1,198,530,561;1174675714:5"
+
+function powerV2()
+bomb_fire=gg.multiChoice({
+"Power Bomb 0" .. dtt,
+"Power Bomb 1 " .. dff,
+"Power Bomb Normal"
+} ,nil, "Please Choose Power Bomb ")
+if bomb_fire then
+if bomb_fire[1] == true then bomb0fires() end
+if bomb_fire[2] == true then bomb1fires() end
+if bomb_fire[3] == true then bombNfires() end
+end
+end 
+
+dtt = " | 🔴"
+function bomb0fires()
+if dtt == " | 🔴" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.setVisible(false)
+gg.searchNumber(bombNfire, gg.TYPE_DWORD)
+gg.refineNumber("-1,358,776,912", gg.TYPE_DWORD)
+gg.getResults(999)
+gg.editAll("1,198,530,560", gg.TYPE_DWORD)
+gg.clearResults()
+gg.setVisible(false)
+gg.searchNumber(bomb1fire, gg.TYPE_DWORD)
+gg.refineNumber("1,198,530,561", gg.TYPE_DWORD)
+gg.getResults(999)
+gg.editAll("1,198,530,560", gg.TYPE_DWORD)
+gg.clearResults()
+gg.toast("Power Bomb 0 | ON")
+gg.clearResults()
+dtt = " | 🟢"
+elseif dtt == " | 🟢" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.setVisible(false)
+gg.searchNumber(bomb0fire, gg.TYPE_DWORD)
+gg.refineNumber("1,198,530,560", gg.TYPE_DWORD)
+gg.getResults(999)
+gg.editAll("-1,358,776,912", gg.TYPE_DWORD)
+gg.clearResults()
+gg.toast("Power Bomb 0 | OFF")
+gg.clearResults()
+dtt = " | 🔴"
+end
+end
+
+dff = " | 🔴"
+function bomb1fires()
+if dff == " | 🔴" then
+gg.setVisible(false)
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(bombNfire, gg.TYPE_DWORD)
+gg.refineNumber("-1,358,776,912", gg.TYPE_DWORD)
+gg.getResults(999)
+gg.editAll("1,198,530,561", gg.TYPE_DWORD)
+gg.clearResults()
+gg.setVisible(false)
+gg.searchNumber(bomb0fire, gg.TYPE_DWORD)
+gg.refineNumber("1,198,530,560", gg.TYPE_DWORD)
+gg.getResults(999)
+gg.editAll("1,198,530,561", gg.TYPE_DWORD)
+gg.toast("Power Bomb 1 | ON")
+gg.clearResults()
+dff = " | 🟢"
+elseif dff == " | 🟢" then
+gg.setVisible(false)
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(bomb1fire, gg.TYPE_DWORD)
+gg.refineNumber("1,198,530,561", gg.TYPE_DWORD)
+gg.getResults(999)
+gg.editAll("-1,358,776,912", gg.TYPE_DWORD)
+gg.clearResults()
+gg.toast("Power Bomb 1 | OFF")
+gg.clearResults()
+dff = " | 🔴"
+end
+end
+
+function bombNfires()
+gg.setVisible(false)
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(bomb0fire, gg.TYPE_DWORD)
+gg.refineNumber("1,198,530,561", gg.TYPE_DWORD)
+gg.getResults(999)
+gg.editAll("-1,358,776,912", gg.TYPE_DWORD)
+gg.clearResults()
+gg.setVisible(false)
+gg.searchNumber(bomb1fire, gg.TYPE_DWORD)
+gg.refineNumber("1,198,530,560", gg.TYPE_DWORD)
+gg.getResults(999)
+gg.editAll("-1,358,776,912", gg.TYPE_DWORD)
+gg.clearResults()
+gg.toast("✅ Normal Power Bomb ✅")
+gg.clearResults()
+dff = " | 🔴"
+dtt = " | 🔴"
+end
+
+local nukez = "17,932W;8,451W;-1,358,776,912D:11" -- enable
+local nukezde = "17,932W;8,451W;1,198,530,560D:11" -- disable
+
+dxx = " | 🔴"
+function nukes()
+if dxx == " | 🔴" then
+gg.setVisible(false)
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(nukez, gg.TYPE_DWORD)
+gg.refineNumber("-1,358,776,912", gg.TYPE_DWORD)
+gg.getResults(999)
+gg.editAll("1,198,530,560", gg.TYPE_DWORD)
+gg.clearResults()
+gg.toast("Invisible nuke | ON")
+dxx = " | 🟢"
+elseif dxx == " | 🟢" then
+gg.setVisible(false)
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(nukezde, gg.TYPE_DWORD)
+gg.refineNumber("1,198,530,560", gg.TYPE_DWORD)
+gg.getResults(999)
+gg.editAll("-1,358,776,912", gg.TYPE_DWORD)
+gg.clearResults()
+gg.toast("Invisible nuke | OFF")
+dxx = " | 🔴"
+end
+end
+
+local med1 = "-28,622W;18,008W;10,240W;-4,096W:15"
+local bom1 = "10,240W;-26,596W;27,008W:7"
+local car1 = "-20,168W;17,960W;10,241W:9"
+function showMC()
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(med1, gg.TYPE_WORD) -- meduals
+gg.refineNumber('10240', gg.TYPE_WORD)
+gg.getResults(10)
+gg.editAll("8193", gg.TYPE_WORD)
+gg.clearResults()
+gg.searchNumber(bom1, gg.TYPE_WORD) -- bombs
+gg.refineNumber("10240", gg.TYPE_WORD)
+gg.getResults(99)
+gg.editAll("10241", gg.TYPE_WORD)
+gg.clearResults()
+gg.searchNumber(car1, gg.TYPE_WORD)
+  gg.refineNumber("-20168", gg.TYPE_WORD)
+  rac = gg.getResults(1)
+  local racs = {}
+  racs[1] = {}
+  racs[2] = {}
+  racs[1].address = rac[1].address - 0x4
+  racs[1].flags = gg.TYPE_WORD
+  racs[1].value = -16640
+  racs[2].address = rac[1].address - 0x2
+  racs[2].flags = gg.TYPE_WORD
+  racs[2].value = 8193
+  gg.setValues(racs)
+gg.clearResults()
+gg.toast("👀 Show information | ON") 
+end
+
+local greeting = "h 78 21 90 47 0A"
+local greeting1 = "h B1 EE 00 1A 00 28 B0"
+local greeting2 = "h B0 EE 00 0A 18 BF B0"
+
+da = " | 🔴"
+function greet()
+if da == " | 🔴" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(greeting, gg.TYPE_BYTE)
+  gg.refineNumber("h 0A", gg.TYPE_BYTE)
+  x = gg.getResults(1)
+  local t = {}
+  t[1] = {}
+  t[1].address = x[1].address - 0x208
+  t[1].flags = gg.TYPE_DWORD
+  t[1].value = -1090470144
+  t[1].freeze = false
+  gg.setValues(t)
+gg.clearResults()
+gg.searchNumber(greeting1, gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll("h BF EE 00 1A 00 28 B0", gg.TYPE_BYTE)
+gg.clearResults()
+gg.searchNumber(greeting2, gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll("h BF EE 00 0A 18 BF B0", gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("🪪infinite Greetings😜 | ON")
+da = " | 🟢"
+elseif da == " | 🟢" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber("h 78 21 90 47 0A", gg.TYPE_BYTE)
+  gg.refineNumber("0A", gg.TYPE_BYTE)
+  xx = gg.getResults(1)
+  local tt = {}
+  tt[1] = {}
+  tt[1].address = xx[1].address + 0x-208
+  tt[1].flags = gg.TYPE_DWORD
+  tt[1].value = -331549216
+  tt[1].freeze = false
+  gg.setValues(tt)
+gg.clearResults()
+gg.searchNumber("h BF EE 00 1A 00 28 B0", gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll("h B1 EE 00 1A 00 28 B0", gg.TYPE_BYTE)
+gg.clearResults()
+gg.searchNumber("h BF EE 00 0A 18 BF B0", gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll("h B0 EE 00 0A 18 BF B0", gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("🪪infinite Greetings😜 | OFF")
+da = " | 🔴"
+end
+end
+
+
+dv = " | 🔴"
+function throwFe()
+if dv == " | 🔴" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber('h91F5B0E8B0FA', gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll('h00BF0120B0FA', gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("🕊️💣Throw Behind fences🚧 | ON")
+dv = " | 🟢"
+elseif dv == " | 🟢" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber('h00BF0120B0FA', gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll('h91F5B0E8B0FA', gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("🕊️💣Throw Behind fences🚧 | OFF")
+dv = " | 🔴"
+end
+end
+
+local tfastz = '-4,705W;16,383W:11'
+
+function tfast()
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(tfastz, gg.TYPE_WORD)
+gg.getResults(99)
+gg.editAll("0", gg.TYPE_WORD)
+gg.clearResults()
+gg.toast("🪽Throw Fast🏃 | ON")
+end
+
+local tauntz = 'h B0 BD F0 B5 03 AF 4D F8 04 8D 2D'
+
+dn = " | 🔴"
+function taunt()
+if dn == " | 🔴" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(tauntz, gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll("h B0 BD 00 20 70 47 4D F8 04 8D 2D", gg.TYPE_BYTE)
+gg.toast("🕺Taunt Teleport👻 | ON")
+dn = " | 🟢"
+elseif dn == " | 🟢" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber('h B0 BD 00 20 70 47 4D F8 04 8D 2D', gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll("h B0 BD F0 B5 03 AF 4D F8 04 8D 2D", gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("🕺Taunt Teleport👻 | OFF")
+dn = " | 🔴"
+end
+end
+
+function fastbomb()
+gg.alert("Sorry Fast Bomb got fixed😭")
+end
+
+function items()
+gg.setVisible(false)
+local﻿ menus = gg.alert('💼Items X100♾️, Press Icon Game Guardian to OFF/ON, if you want to stop, you can see ⏺️ prees it to Stop.\n----------\n[⚠️Warning⚠️] If you so fast and Appears Wifi Erorr Stop Now....then move, Or You will get banned By Server He thinks you Hacking Speed.\n----------\nHow to not get banned: when you pick up an object you pick it up and then destroy it then go over it or even stay on top of it you wont be banned👍.','❌No❌','✅Yes✅')
+if menus == nil then gg.setVisible(true)
+else
+if menus == 0 then gg.setVisible(true) end
+if menus == 1 then gg.setVisible(true) end
+if menus == 2 then Eng() end
+end
+end
+
+function Eng()
+  local scriptAtivado = false
+  gg.toast("Click to Start.")
+  gg.setRanges(gg.REGION_CODE_APP)
+
+  local function modifyValues()
+    gg.searchNumber("h F0 B5 03 AF 4D F8 04 8D 04 46 D0 F8 94 00 1D 46", gg.TYPE_BYTE)
+    local results = gg.getResults(99)
+    if #results > 0 then
+      gg.editAll("h 01 20 70 47 4D F8 04 8D 04 46 D0 F8 94 00 1D 46", gg.TYPE_BYTE)
+      gg.clearResults()
+      gg.toast("💼Items X100♾️ | ON")
+    else
+      gg.toast("No results found.")
+    end
+  end
+
+  local function restoreValues()
+    gg.searchNumber("h 01 20 70 47 4D F8 04 8D 04 46 D0 F8 94 00 1D 46", gg.TYPE_BYTE)
+    local results = gg.getResults(99)
+    if #results > 0 then
+      gg.editAll("h F0 B5 03 AF 4D F8 04 8D 04 46 D0 F8 94 00 1D 46", gg.TYPE_BYTE)
+      gg.clearResults()
+      gg.toast("💼Items X100♾️ | OFF")
+    else
+      gg.toast("No results found.")
+    end
+  end
+
+  local function toggleScript()
+    scriptAtivado = not scriptAtivado
+    if scriptAtivado then
+      modifyValues()
+    else
+      restoreValues()
+    end
+  end
+
+  while true do
+    if gg.isVisible(true) then
+      gg.sleep(100)
+      gg.setVisible(false)
+      toggleScript()
+    end
+  end
+end
+
+local bomb0 = "h 08 01 00 20 37 29 38 BF"
+
+de = " | 🔴"
+function powers() 
+if de == " | 🔴" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(bomb0, gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll("h 08 01 01 20 37 29 38 BF", gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("🔥Power bomb 0💣 | ON")
+de = " | 🟢"
+elseif de == " | 🟢" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber("h 08 01 01 20 37 29 38 BF", gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll("h 08 01 00 20 37 29 38 BF", gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("🔥Power bomb 0💣 | OFF")
+de = " | 🔴"
+end
+end
+
+local minez = 'h 01 29 62 D0 B6 EE 00 2A'
+
+di = " | 🔴"
+function mines()
+if di == " | 🔴" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(minez, gg.TYPE_BYTE)
+gg.getResults(5)
+gg.editAll('h 00 20 60 D0 B6 EE 00 2A' ,gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("🚩No Mine Found🕳️ | ON")
+di = " | 🟢"
+elseif di == " | 🟢" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber('h 00 20 60 D0 B6 EE 00 2A', gg.TYPE_BYTE)
+gg.getResults(5)
+gg.editAll('h 01 29 60 D0 B6 EE 00 2A' ,gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("🚩No Mine Found🕳️ | OFF")
+di = " | 🔴"
+end
+end
+
+local fencez = "h BD 01 39 02 46"
+
+ds = " | 🔴"
+function fences()
+if ds == " | 🔴" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(fencez, gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll("h BD 00 20 70 47", gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("🚧Bypass fence❌ | ON")
+ds = " | 🟢"
+elseif ds == " | 🟢" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber("h 00 20 80 BD 00 20 70 47 00 20", gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll("h 00 20 80 BD 01 39 02 46 00 20", gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("🚧Bypass fence❌ | OFF")
+ds = " | 🔴"
+end
+end
+
+function line()
+gg.toast("Sorry for say that😭Line of bombs got fixed🫡")
+end
+
+local uitem = "h A0 F1 D2 01 02 29 04 D3 18 B1 65"
+
+dy = " | 🔴"
+function unitem()
+if dy == " | 🔴" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(uitem, gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll("h 00 20 70 47 02 29 04 D3 18 B1 65", gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("🛡️Undestory items💣 | ON")
+dy = " | 🟢"
+elseif dy == " | 🟢" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber("h 00 20 70 47 02 29 04 D3 18 B1 65", gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll("h A0 F1 D2 01 02 29 04 D3 18 B1 65", gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("🛡️Undestory items💣 | OFF")
+dy = " | 🔴"
+end
+end
+
+local stunhead = 'h 7A 44 F0 B5 03 AF 2D E9 00 0F 8B B0'
+
+dp = " | 🔴"
+function headstun()
+if dp == " | 🔴" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(stunhead, gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll('h 7A 44 00 20 70 47 2D E9 00 0F 8B B0', gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("💫🕊️Throw Stun💣 | ON")
+dp = " | 🟢"
+elseif dp == " | 🟢" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber('h 7A 44 00 20 70 47 2D E9 00 0F 8B B0', gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll('h 7A 44 F0 B5 03 AF 2D E9 00 0F 8B B0', gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("💫🕊️Throw Stun💣 | OFF")
+dp = " | 🔴"
+end
+end
+
+function xray()
+Xrayy=gg.multiChoice({
+"Xray V2, Show only items 💪👀" .. dt,
+"Xray V1, Show Everything 🧓👁️" .. df,
+} ,nil, "Choose Xray V1, V2, (Fixed crash)")
+if Xrayy then
+if Xrayy[1] == true then xray2() end
+if Xrayy[2] == true then xray1() end
+end
+end
+
+local x_ray1 = 'h D0 F8 98 00 04 38 B0 FA 80 F0'
+local x_ray2 = "h 9F ED 2D 1A B8 EE C0 0A"
+
+dt = " | 🔴"
+function xray2()
+if dt == " | 🔴" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(x_ray2, gg.TYPE_BYTE)
+  gg.refineNumber("h 0A", gg.TYPE_BYTE)
+  xl = gg.getResults(1)
+  local tl = {}
+  tl[1] = {}
+  tl[1].address = xl[1].address + 0xC9
+  tl[1].flags = gg.TYPE_WORD
+  tl[1].value = -12283
+  tl[1].freeze = false
+  gg.setValues(tl)
+gg.clearResults()
+gg.toast("👁️Xray v2👀 | ON")
+dt = " | 🟢"
+elseif dt == " | 🟢" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber("h 9F ED 2D 1A B8 EE C0 0A", gg.TYPE_BYTE)
+  gg.refineNumber("h 0A", gg.TYPE_BYTE)
+  xll = gg.getResults(1)
+  local tll = {}
+  tll[1] = {}
+  tll[1].address = xll[1].address + 0xC9
+  tll[1].flags = gg.TYPE_WORD
+  tll[1].value = -18136
+  tll[1].freeze = false
+  gg.setValues(tll)
+  gg.clearResults()
+gg.toast("👁️Xray v2👀 | OFF")
+dt = " | 🔴"
+end
+end
+
+df = " | 🔴"
+function xray1()
+if df == " | 🔴" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber(x_ray1, gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll('h 01 20 70 47 04 38 B0 FA 80 F0',gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("👁️Xray v1👀 | ON")
+df = " | 🟢"
+elseif df == " | 🟢" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber('h 01 20 70 47 04 38 B0 FA 80 F0', gg.TYPE_BYTE)
+gg.getResults(99)
+gg.editAll('h D0 F8 98 00 04 38 B0 FA 80 F0', gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("👁️Xray v1👀 | OFF")
+df = " | 🔴"
+end
+end
+
+function smoke()
+    smokes = gg.choice({
+        "1 - 99999.0s (Infinite)",
+        "2 - 3.0s (Very Slow)",
+        "3 - 2.0s (Slow)",
+        "4 - 1.5s (75% Slow)",
+        "5 - 1.0s (Slightly Slow)",
+        "6 - 0.5s (Normal)"
+    }, nil, "🚬 Choose a Time for Smoke 🚬")
+
+    if smokes == 1 then INF() end
+    if smokes == 2 then VERYSLOW() end
+    if smokes == 3 then SLOW() end
+    if smokes == 4 then SLOW75() end
+    if smokes == 5 then SLOWL() end
+    if smokes == 6 then NORMAL() end
+end
+
+local smokeInf = 'h 4F F6 FF 70 07 E0' -- Infinite
+local smokeVerySlow = 'h 40 F6 B9 30 07 E0' -- Very Slow
+local smokeSlow = 'h 40 F2 D1 70 07 E0' -- Slow
+local smoke75 = 'h 40 F2 DD 50 07 E0' -- 75% Slow
+local smokeLow = 'h 40 F2 E9 30 07 E0' -- Slightly Slow
+local smokeNormal = 'h 4F F4 FA 70 07 E0' -- Normal
+
+function applyAllSmoke(newHex, toastMessage)
+    local allSmokes = {smokeInf, smokeVerySlow, smokeSlow, smoke75, smokeLow, smokeNormal}
+    gg.setRanges(gg.REGION_CODE_APP)
+    for _, originalHex in ipairs(allSmokes) do
+        gg.searchNumber(originalHex, gg.TYPE_BYTE)
+        gg.getResults(99)
+        gg.editAll(newHex, gg.TYPE_BYTE)
+        gg.clearResults()
+    end
+    gg.toast(toastMessage)
+end
+
+function INF()
+    applyAllSmoke(smokeInf, "✅ Smoke: 99999.0s ✅")
+end
+
+function VERYSLOW()
+    applyAllSmoke(smokeVerySlow, "⚡ Smoke: 3.0s⚡")
+end
+
+function SLOW()
+    applyAllSmoke(smokeSlow, "🐌 Smoke: 2.0s 🐌")
+end
+
+function SLOW75()
+    applyAllSmoke(smoke75, "🏃 Smoke : 1.5s 🏃")
+end
+
+function SLOWL()
+    applyAllSmoke(smokeLow, "🛌 Smoke: 1.0s 🛌")
+end
+
+function NORMAL()
+    applyAllSmoke(smokeNormal, "Smoke: Normal")
+end
+
+local playRewardedAd = '-1,358,711,312;184,609,069;1,182,838,930;1,148,732,950:17' 
+local playRewardedAd2 = '-1,358,711,312;-1,123,747,763;1,174,712,466;1,748,002,822;26,672W;-22,514W:31' 
+local isVideoRewardAvailable = 'h D0 BD D0 F8 D0 12 00 20'
+local IsRewardedAdAvailable = 'h 00 20 80 BD 80 B5 6F 46 F8 F7'
+local isRewardedAdAvailableImpl = '-202,684,896;-16,640W;-1,358,711,312;-20,733W;-1,123,747,763:21'
+local canVideoRewardBeUsedForThisChest = 'h 70 47 B0 B5 02 AF 71 B1'
+local IsAdsEnabled = '1,181,726,080A;-1,115,652,864A:9'
+local ShowbannerAd = '57,086A;-1,358,711,312A;200,337,709A:9'
+local InspectChestDialog = '-22,438W;10,240W:11'
+local InspectChestDialogv2 = '-19,584W;8,192W:3'
+
+--dc = " | 🔴"
+function ads()
+--if dc == " | 🔴" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.setVisible(false)
+gg.searchNumber(playRewardedAd, gg.TYPE_DWORD) --playRewardedAd
+gg.refineNumber("-1,358,711,312", gg.TYPE_DWORD)
+gg.getResults(99)
+gg.editAll('18,288', gg.TYPE_DWORD)
+gg.clearResults()
+gg.setVisible(false)
+gg.searchNumber(playRewardedAd2, gg.TYPE_DWORD) --playRewardedAd
+gg.refineNumber("-1,358,711,312", gg.TYPE_DWORD)
+gg.getResults(99)
+gg.editAll('18,288', gg.TYPE_DWORD)
+gg.clearResults()
+gg.setVisible(false)
+gg.searchNumber(isVideoRewardAvailable, gg.TYPE_BYTE) -- isVideoRewardAvailable
+gg.getResults(99)
+gg.editAll('h D0 BD 01 20 20 70 47 00 20',gg.TYPE_BYTE)
+gg.clearResults()
+gg.setVisible(false)
+gg.searchNumber(IsRewardedAdAvailable, gg.TYPE_BYTE) -- IsRewardedAdAvailable
+gg.getResults(99)
+gg.editAll('h 00 20 80 BD 01 20 70 47 F8 F7',gg.TYPE_BYTE)
+gg.clearResults()
+gg.setVisible(false)
+gg.searchNumber(isRewardedAdAvailableImpl, gg.TYPE_DWORD) -- isRewardedAdAvailableImpl
+gg.refineNumber("-1,358,711,312", gg.TYPE_DWORD)
+gg.getResults(99)
+gg.editAll('1,198,530,561', gg.TYPE_DWORD)
+gg.clearResults()
+gg.setVisible(false)
+gg.searchNumber(canVideoRewardBeUsedForThisChest, gg.TYPE_BYTE) -- canVideoRewardBeUsedForThisChest
+gg.getResults(99)
+gg.editAll('h 70 47 01 20 70 47 71 B1', gg.TYPE_BYTE)
+gg.clearResults()
+gg.setVisible(false)
+gg.searchNumber(IsAdsEnabled, gg.TYPE_DWORD) -- IsAdsEnabled
+gg.refineNumber("1,181,726,080", gg.TYPE_DWORD)
+gg.getResults(99)
+gg.editAll('1,198,530,560', gg.TYPE_DWORD)
+gg.clearResults()
+gg.setVisible(false)
+gg.searchNumber(ShowbannerAd, gg.TYPE_DWORD) -- ShowbannerAd
+gg.refineNumber("-1,358,711,312", gg.TYPE_DWORD)
+gg.getResults(99)
+gg.editAll('18,288', gg.TYPE_DWORD)
+gg.clearResults()
+gg.setVisible(false)
+gg.searchNumber(InspectChestDialog, gg.TYPE_WORD) -- INSIDE InspectChestDialog CMP R0, #0 in UP createOpenWithVideoButtoN
+gg.refineNumber("10240", gg.TYPE_WORD)
+gg.getResults(99)
+gg.editAll('8,193', gg.TYPE_WORD)
+gg.clearResults()
+gg.searchNumber(InspectChestDialogv2, gg.TYPE_WORD) -- INSIDE InspectChestDialog isRewardedAdWatchedSuccessfully at CBZ to NOP
+gg.refineNumber("-19584", gg.TYPE_WORD)
+gg.getResults(99)
+gg.editAll('-16,640', gg.TYPE_WORD)
+gg.clearResults()
+gg.setVisible(false)
+gg.toast('Bypass Ads v2 | ON')
+--[[dc = " | 🟢"
+elseif dc == " | 🟢" then
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber('h CA D4 5A 00 00 20 70 47 2D E9 00 0F', gg.TYPE_BYTE) -- giveCampaignAdReward
+gg.getResults(99)
+gg.editAll('h CA D4 5A 00 F0 B5 03 AF 2D E9 00 0F', gg.TYPE_BYTE)
+gg.clearResults()
+gg.searchNumber('h 01 21 70 47 08 B1 00 20', gg.TYPE_BYTE) -- isRewardedAdWatchedSuccessfully
+gg.getResults(99)
+gg.editAll('h 02 69 10 7E 08 B1 00 20',gg.TYPE_BYTE)
+gg.clearResults()
+gg.searchNumber('h 01 21 70 47 04 46 00 69 08', gg.TYPE_BYTE) -- hasEnoughTimePassedSinceLastAd
+gg.getResults(99)
+gg.editAll('h D0 B5 02 AF 04 46 00 69 08',gg.TYPE_BYTE)
+gg.clearResults()
+gg.searchNumber('h 00 00 01 21 70 47 00 68 00 68 00', gg.TYPE_BYTE) -- isSearchingAnyGame
+gg.getResults(99)
+gg.editAll('h 00 00 03 48 78 44 00 68 00 68 00', gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("⏲️Bypass Ads⏲️ | OFF")
+dc = " | 🔴"
+end]]
+end
+
+function exits()
+gg.clearResults()
+gg.clearList()
+gg.toast("Made By 💪edittex💪")
+gg.setVisible(true)
+os.exit()
+end
+
+
+function cards()
+menu=gg.multiChoice({
+"🤢Wings Blob🕊️",
+"🤢blob",
+"🚬Smoke🚬",
+"💀Wings Hex🕊️",
+"💀Hex",
+"🌞Flashbang🌞",
+"🖤Blackout🖤",
+"👁️Xray T bomb👁️",
+"🧊Ice bomb🧊",
+"🌐Force Field Infinity♾️",
+"[↩️Back↩️]",
+} ,nil, "Script Made By edittex")
+
+if menu == nil then regoinss()
+else
+if menu[1] == true then A() end
+if menu[2] == true then B() end
+if menu[3] == true then C() end
+if menu[4] == true then D() end
+if menu[5] == true then DD() end
+if menu[6] == true then E() end
+if menu[7] == true then F() end
+if menu[8] == true then H() end
+if menu[9] == true then I() end
+if menu[10] == true then J() end
+if menu[11] == true then regoinss() end end
+HOMEDM=-1 end
+
+function A()
+gg.searchNumber("1;8F;1;9F;2;9F;2;9F;3;9F;3;10F;4;10F;4;10F;4;10F::", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("0" , gg.TYPE_FLOAT)
+gg.toast("🕊️Wings Blob🤢")
+gg.clearResults()
+end
+
+function B()
+gg.searchNumber("1;8F;2;8F;2;10F;3;10F;3;10F;4;10F;4;12F;5;12F;5;12F::", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("0" , gg.TYPE_FLOAT)
+gg.toast("🤢blob")
+gg.clearResults()
+end
+
+function C()
+gg.searchNumber("1;6F;2;6F;2;7F;3;7F;3;7F;4;7F;4;8F;5;8F;5;8F", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("0" , gg.TYPE_FLOAT)
+gg.toast("🚬Smoke🚬")
+gg.clearResults()
+end
+
+function D()
+gg.searchNumber("17,747;3;4;4;5;5;9;9;10;10;10.0F:269", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("-1" , gg.TYPE_DWORD)
+gg.toast("💀Wings Hex🕊️")
+gg.clearResults()
+end
+
+function DD()
+gg.searchNumber("3;3;5;5;9;9;10;10;12;10.0F;16,965::", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("-1" , gg.TYPE_DWORD)
+gg.toast("💀Hex")
+gg.clearResults()
+end
+
+function E()
+gg.searchNumber("1;1.2F;2;1.2F;2;1.2F;3;1.2F;3;1.7F;4;1.7F;4;1.7F;5;1.7F;5;2.2F::", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("0.01" , gg.TYPE_FLOAT)
+gg.toast("🌞Flashbang☀️")
+gg.clearResults()
+end
+
+function F()
+gg.searchNumber('6.00;6.00;6.00;6.00;6.00;6.00;8.00', gg.TYPE_FLOAT)
+gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("0" , gg.TYPE_FLOAT)
+gg.toast("🖤Blackout🖤")
+gg.clearResults()
+end
+
+function H()
+gg.searchNumber("3;3;5;5;9;9;10;10;29285::", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("12" , gg.TYPE_DWORD)
+gg.toast("👁️Xray👁️")
+gg.clearResults()
+end
+
+function I()
+gg.searchNumber("1;8F;2;8F;2;8F;3;8F;3;10F;4;10F;4;10F;5;10F;5;12F;1~20::", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.getResults(99)
+gg.editAll("0", gg.TYPE_FLOAT)
+gg.editAll("-1", gg.TYPE_DWORD)
+gg.toast("🧊Ice bomb🧊")
+gg.clearResults()
+end
+
+function J()
+gg.searchNumber("2.0F;2.29999995232F;2.59999990463F;2.90000009537F;3.20000004768F;3.5F;3.79999995232F;4.09999990463F;4.5F:257", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.processResume()
+gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("9999" , gg.TYPE_FLOAT)
+gg.toast("🌐Infinity🌐")
+gg.clearResults()
+end
+
+function main()
+    local HDmenu = gg.choice({
+        '💾 • Account', 
+        '💉 • Hooks & Non-Hooks', 
+        '💳 • Cards', 
+        '🗺️ • Maps',
+        '🎬 • Config',
+        '🔎 • Checker',
+        '❌Exit❌'
+    }, nil, "Script Made By 👑edittex👑 {32-Bit} v5.30")
+
+    if HDmenu == nil then
+    end
+
+    if HDmenu == 1 then accounts() end
+    if HDmenu == 2 then hooks() end
+    if HDmenu == 3 then regoins() end
+    if HDmenu == 4 then tilecolor_main() end
+    if HDmenu == 5 then config() end    --if HDmenu == 5 then updateScript() end '📩 • Update',
+    --if HDmenu == 6 then news() end
+    if HDmenu == 6 then Check() end
+    if HDmenu == 7 then exits() end
+    HOMEDM = -1
+end 
+
+function Check()
+
+
+
+  gg.setRanges(gg.REGION_CODE_APP)
+  gg.searchNumber(Dialog_offset, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    Dialog_1 = "✅"
+  else
+    Dialog_1 = "❌"
+  end
+  gg.toast("%5")
+  gg.clearResults()
+  gg.searchNumber(PasswordRR, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    Password_1 = "✅"
+  else
+    Password_1 = "❌"
+  end
+  gg.toast("%8")
+  gg.clearResults()
+  
+  local ABS = 0  -- Total number of searches
+  local ABT = 10  -- Counter for successful searches
+  local FSSS = 0 -- Total
+  local FST = 3 -- Counter
+
+  -- 1
+  gg.searchNumber(playRewardedAd, gg.TYPE_DWORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    ABS = ABS + 1
+  end
+  gg.toast("%12")
+  gg.clearResults()
+
+  -- 2
+  gg.searchNumber(InspectChestDialogv2, gg.TYPE_WORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    ABS = ABS + 1
+  end
+  gg.toast("%17")
+  gg.clearResults()
+
+  -- 3
+  gg.searchNumber(InspectChestDialog, gg.TYPE_WORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    ABS = ABS + 1
+  end
+  gg.toast("%22")
+  gg.clearResults()
+
+  -- 4
+  gg.searchNumber(ShowbannerAd, gg.TYPE_DWORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    ABS = ABS + 1
+  end
+  gg.toast("%27")
+  gg.clearResults()
+
+  -- 5
+  gg.searchNumber(IsAdsEnabled, gg.TYPE_DWORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    ABS = ABS + 1
+  end
+  gg.toast("%30")
+  gg.clearResults()
+
+  -- 6
+  gg.searchNumber(canVideoRewardBeUsedForThisChest, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    ABS = ABS + 1
+  end
+  gg.toast("%34")
+  gg.clearResults()
+
+  -- 7
+  gg.searchNumber(isRewardedAdAvailableImpl, gg.TYPE_DWORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    ABS = ABS + 1
+  end
+  gg.toast("%37")
+  gg.clearResults()
+
+  -- 8
+  gg.searchNumber(IsRewardedAdAvailable, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    ABS = ABS + 1
+  end
+  gg.toast("%41")
+  gg.clearResults()
+
+  -- 9
+  gg.searchNumber(isVideoRewardAvailable, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    ABS = ABS + 1
+  end
+  gg.toast("%46")
+  gg.clearResults()
+
+  -- 10
+  gg.searchNumber(playRewardedAd2, gg.TYPE_DWORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    ABS = ABS + 1
+  end
+  gg.toast("%49")
+  gg.clearResults()
+  gg.searchNumber(aslime, gg.TYPE_DWORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    aslime_1 = " ✅"
+  else
+    aslime_1 = " ❌"
+  end
+  gg.toast("%51")
+  gg.clearResults()
+  gg.searchNumber(acurse, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    acurse_1 = " ✅"
+  else
+    acurse_1 = " ❌"
+  end
+  gg.toast("%54")
+  gg.clearResults()
+  gg.searchNumber(ablackout, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    ablackout_1 = " ✅"
+  else
+    ablackout_1 = " ❌"
+  end
+  gg.toast("%57")
+  gg.clearResults()
+  gg.searchNumber(aflashbang, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    aflashbang_1 = " ✅"
+  else
+    aflashbang_1 = " ❌"
+  end
+  gg.toast("%59")
+  gg.clearResults()
+  gg.searchNumber(aicebomb, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    aicebomb_1 = " ✅"
+  else
+    aicebomb_1 = " ❌"
+  end
+  gg.clearResults()
+  -- 1
+  gg.searchNumber(DialogCostumeComp, gg.TYPE_DWORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    FSSS = FSSS + 1
+  end
+  gg.toast("%61")
+  gg.clearResults()
+
+  -- 2
+  gg.searchNumber(DialogBase, gg.TYPE_WORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    FSSS = FSSS + 1
+  end
+  gg.toast("%64")
+  gg.clearResults()
+
+  -- 3
+  gg.searchNumber(CostumeCompetitionHelpers, gg.TYPE_WORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    FSSS = FSSS + 1
+  end
+  gg.toast("%66")
+  gg.clearResults()
+  gg.searchNumber(gold_spin, gg.TYPE_WORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    goldspin_1 = "✅"
+  else
+    goldspin_1 = "❌"
+  end
+  gg.clearResults()
+  
+  local longms = 0
+  local longmt = 3
+  
+  gg.searchNumber(messagec, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    longms = longms + 1
+  end
+  gg.toast("%68")
+  gg.clearResults()
+
+  -- 2
+  gg.searchNumber(chatm, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    longms = longms + 1
+  end
+  gg.toast("%71")
+  gg.clearResults()
+
+  -- 3
+  gg.searchNumber(descriptionc, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    longms = longms + 1
+  end
+  gg.toast("%73")
+  gg.clearResults()
+  gg.setRanges(gg.REGION_C_DATA)
+  gg.searchNumber(longn, gg.TYPE_WORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    longn_1 = "✅"
+  else
+    longn_1 = "❌"
+  end
+  gg.clearResults()
+  
+  local bypassns = 0
+  local bypassnt = 2
+  
+  gg.setRanges(gg.REGION_CODE_APP)
+  
+  gg.searchNumber(bypassn, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    bypassns = bypassns + 1
+  end
+  gg.toast("%74")
+  gg.clearResults()
+
+  -- 2
+  gg.searchNumber(bypassn2, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    bypassns = bypassns + 1
+  end
+  gg.toast("%75")
+  gg.clearResults()
+  gg.searchNumber(dragon1, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    dragon_1 = "✅"
+  else
+    dragon_1 = "❌"
+  end
+  gg.clearResults()
+  gg.toast("%76")
+  gg.searchNumber(uitem, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    uitem_1 = "✅"
+  else
+    uitem_1 = "❌"
+  end
+  gg.clearResults()
+  gg.toast("%78")
+  gg.searchNumber(smokeNormal, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    smoke_1 = "✅"
+  else
+    smoke_1 = "❌"
+  end
+  gg.clearResults()
+  gg.toast("%79")
+  gg.searchNumber(x_ray2, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    x_ry2 = "✅"
+  else
+    x_ry2 = "❌"
+  end
+  gg.clearResults()
+  gg.toast("%80")
+  gg.searchNumber(x_ray1, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    x_ry1 = "✅"
+  else
+    x_ry1 = "❌"
+  end
+  gg.clearResults()
+  gg.toast("%81")
+  gg.searchNumber(stunhead, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    stun_1 = "✅"
+  else
+    stun_1 = "❌"
+  end
+  gg.clearResults()
+  gg.toast("%82")
+  gg.searchNumber(bomb0, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    power_1 = "✅"
+  else
+    power_1 = "❌"
+  end
+  gg.clearResults()
+  gg.toast("%83")
+  gg.searchNumber(minez, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    mine_1 = "✅"
+  else
+    mine_1 = "❌"
+  end
+  gg.clearResults()
+  gg.toast("%84")
+  gg.searchNumber(fencez, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    fence_1 = "✅"
+  else
+    fence_1 = "❌"
+  end
+  gg.clearResults()
+  gg.toast("%85")
+  gg.searchNumber(tauntz, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    taunt_1 = "✅"
+  else
+    taunt_1 = "❌"
+  end
+  gg.clearResults()
+  gg.toast("%86")
+  gg.searchNumber(tfastz, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    tfast_1 = "✅"
+  else
+    tfast_1 = "❌"
+  end
+  gg.clearResults()
+  gg.toast("%87")
+  
+  local Showmcs = 0
+  local Showmct = 3
+  -- 1
+  gg.searchNumber(med1, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    Showmcs = Showmcs + 1
+  end
+  gg.toast("%88")
+  gg.clearResults()
+
+  -- 2
+  gg.searchNumber(bom1, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    Showmcs = Showmcs + 1
+  end
+  gg.toast("%89")
+  gg.clearResults()
+  
+  -- 3
+  gg.searchNumber(car1, gg.TYPE_BYTE)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    Showmcs = Showmcs + 1
+  end
+  gg.toast("%90")
+  gg.clearResults()
+  
+  gg.searchNumber(nukez, gg.TYPE_DWORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    nuke_1 = "✅"
+  else
+    nuke_1 = "❌"
+  end
+  gg.clearResults()
+  gg.toast("%91")
+  
+  gg.searchNumber(bombNfire, gg.TYPE_DWORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    bombz_1 = "✅"
+  else
+    bombz_1 = "❌"
+  end
+  gg.clearResults()
+  gg.toast("%92")
+  
+  local Cursess = 0
+  local Cursett = 6
+  -- 1
+  gg.searchNumber(sendBomberEvent, gg.TYPE_DWORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    Cursess = Cursess + 1
+  end
+  gg.toast("%93")
+  gg.clearResults()
+
+  -- 2
+  gg.searchNumber(GetSpeed, gg.TYPE_FLOAT)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    Cursess = Cursess + 1
+  end
+  gg.toast("%94")
+  gg.clearResults()
+  
+  -- 3
+  gg.searchNumber(Checkifdropsbomb, gg.TYPE_WORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    Cursess = Cursess + 1
+  end
+  gg.toast("%95")
+  gg.clearResults()
+  
+  -- 4
+  gg.searchNumber(CheckIfPlayerHasCurseReturnEmptyIfNone, gg.TYPE_WORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    Cursess = Cursess + 1
+  end
+  gg.clearResults()
+
+  -- 5
+  gg.searchNumber(MoveAndCollideImpl_trueIfMoved, gg.TYPE_DWORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    Cursess = Cursess + 1
+  end
+  gg.toast("%96")
+  gg.clearResults()
+  
+  -- 6
+  gg.searchNumber(CheckCollisionWithGhostOrSickPlayers, gg.TYPE_WORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    Cursess = Cursess + 1
+  end
+  gg.toast("%100")
+  gg.clearResults()
+  
+  
+  gg.alert("Working = ✅     |     Not working = ❌\nYour Bomber Friends: v".. info.versionName .."\n\nUnknown dialog: " .. Dialog_1 .. "\nBypass Password: " .. Password_1 .. "\nBypass Ads v2 ✅: " .. ABS .. "/" .. ABT .. "\nAnti-Slime" .. aslime_1 .. "\nAnti-Curse" .. acurse_1 .."\nBlackout" .. ablackout_1 .. "\nFlashbang" .. aflashbang_1 .. "\nIce bomb" .. aicebomb_1 .. "\nFashion Show ✅: " .. FSSS .. "/" .. FST .. "\nGolden Wheel spin".. goldspin_1 .. "\nLong message ✅: " .. longms .. "/" .. longmt .. "\nLong name " .. longn_1 .. "\nBypass ban ✅: " .. bypassns .. "/" .. bypassnt .. "\nDungeon Run " .. dragon_1 .. "\nInfinite Smoke " .. smoke_1 .. "\nXray v2 " .. x_ry2 .. "\nXray v1 " .. x_ry1 .. "\nStun Resistance " .. stun_1 .. "\nUndestroyable Items " .. uitem_1 .. "\nPower Bomb 0 " .. power_1 .. "\nNo Mines Found " .. mine_1 .. "\nBypass Fences " .. fence_1 .. "\nTaunt Teleport " .. taunt_1 .. "\nFast Throw " .. tfast_1 .. "\nShow Player information ✅: " .. Showmcs .. "/" .. Showmct .. "\ninvisible nuke " .. nuke_1 .. "\nAlways 0 Power Bomb" .. bombz_1 .. "\nDisable Some Curses ✅: " .. Cursess .. "/" ..Cursett,nil)
+end
+
+
+function logging()
+gg.alert("the account is already deleted")
+end
+--[[
+    local menulog = gg.choice({
+        "1 - First You Need Go Play Offline (Disable Network)\n",
+        "2 - Back"
+    }, nil, "Logging to berry's account 😂")
+    
+    if menulog == 1 then
+        searchAndReplace()
+    elseif menulog == 2 or menu == nil then
+        main()
+    else
+        main()
+    end
+end]] 
+
+function searchAndReplace()
+gg.setRanges(gg.REGION_JAVA_HEAP)
+local Typeprompt = gg.prompt({"Enter Your LoggerID:\nif you dont what is LoggerID, ask edittex:"}, {}, {"text"})
+
+    -- Handle "Back" button or empty input
+    if Typeprompt == nil or Typeprompt[1] == "" then
+        gg.alert("You didnt Input something")
+        main()
+        return
+    end
+    
+    if #Typeprompt[1] < 21 then
+        gg.alert("Sorry, Your LoggerID is too short.")
+        searchAndReplace()
+        return
+    end
+    
+    local searchStringUTF8 = ":" .. Typeprompt[1]
+    local searchStringUTF16 = ";" .. Typeprompt[1]
+    
+    gg.searchNumber(searchStringUTF8, gg.TYPE_BYTE)
+        gg.getResults(999)
+        gg.editAll(":gid_a_obkbtbu87ou8jrg", gg.TYPE_BYTE)
+        gg.clearResults()
+    
+    gg.searchNumber(searchStringUTF16, gg.TYPE_WORD)
+        gg.getResults(999)
+        gg.editAll(";gid_a_obkbtbu87ou8jrg", gg.TYPE_WORD)
+        gg.clearResults()
+
+    if gg.getResultsCount() == 0 then
+        gg.alert("Successfully! 😇👍")
+    main()
+end
+end
+
+local userInput = Login()
+if userInput[2] then
+    StartConfigs()
+end
+
+while true do
+if gg.isVisible(true) then
+HOMEDM = 1 
+gg.setVisible(false)
+end
+if HOMEDM == 1 then
+main()
+end
+end
