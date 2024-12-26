@@ -1,4 +1,4 @@
-local info = gg.getTargetInfo() 
+local info = gg.getTargetlnfo() 
 local function fileExists(file_path)
     local file = io.open(file_path, "r")
     if file then
