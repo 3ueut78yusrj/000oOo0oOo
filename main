@@ -787,7 +787,8 @@ account=gg.multiChoice({
 "\xF0\x9F\x8E\xAB\x47\x6F\x6C\x64\x65\x6E\x20\x57\x68\x65\x65\x6C\x20\x73\x70\x69\x6E\xF0\x9F\x8E\xAB\x2C\x20\x73\x6B\x69\x70\x20\x61\x64\x2E\x20\x4D\x61\x79\x62\x65\x20\x67\x69\x76\x65\x20\x79\x6F\x75\x20\x6C\x75\x63\x6B\xF0\x9F\x8D\x80\x3F",
 "\xF0\x9F\xA4\xB5\x46\x61\x73\x68\x69\x6F\x6E\x20\x53\x68\x6F\x77\xF0\x9F\x93\xB7\x2C\x20\x32\x30\x30\x78\x20\x50\x6F\x69\x6E\x74\x73\x20\x66\x6F\x72\x20\x66\x72\x65\x65\x21",
 "\xE2\x9B\x94\x42\x79\x70\x61\x73\x73\x20\x4C\x6F\x63\x6B\x20\x52\x6F\x6F\x6D\xF0\x9F\x94\x92\x2C\x20\x59\x6F\x75\x20\x63\x61\x6E\x20\x6A\x6F\x69\x6E\x20\x61\x6E\x79\x20\x52\x6F\x6F\x6D",
-"\xE2\x86\xA9\xEF\xB8\x8F\x42\x61\x63\x6B\xE2\x86\xA9\xEF\xB8\x8F",
+"🗓️Complete all daily tasks✅, complete it by one button😁",
+"\xE2\x86\xA9\xEF\xB8\x8F\x42\x61\x63\x6B\xE2\x86\xA9\xEF\xB8\x8F"
 } ,nil, "\xF0\x9F\x8F\xA6\x41\x63\x63\x6F\x75\x6E\x74\xF0\x9F\x8F\xA6\x20\x7C\x20\x4F\x4E\x20\x3D\x20\xF0\x9F\x9F\xA2\x20\x2F\x20\x4F\x46\x46\x20\x3D\x20\xF0\x9F\x94\xB4")
 
 if account == nil then main()
@@ -801,9 +802,22 @@ if account[6] == true then DR() end -- isRewardClaimable
 if account[7] == true then Dialog() end
 if account[8] == true then goldspin() end
 if account[9] == true then FS() end
-if account[10] ==true then PasswordR() end
-if account[11] == true then main() end end
+if account[10] == true then PasswordR() end
+if account[11] == true then taskss() end
+if account[12] == true then main() end end
 HOMEDM=-1 end
+
+local tasks = "1,170,884,101"
+function taskss()
+gg.setVisible(false)
+gg.setRanges(gg.REGION_CODE_APP) gg.setVisible(false)
+gg.setVisible(false)
+gg.searchNumber(tasks, 4)
+gg.getResults(999)
+gg.editAll("536,954,373")
+gg.clearResults()
+gg.toast("🗓️Complete all tasks✅ | ON")
+end
 
 PasswordRR = "\x31\x37\x2C\x39\x35\x32\x57\x3B\x31\x30\x2C\x32\x34\x30\x57\x3B\x34\x32\x2C\x32\x36\x38\x2C\x38\x38\x38\x44\x3A\x31\x35"
 function PasswordR()
@@ -2040,16 +2054,83 @@ gg.toast("\xF0\x9F\x8C\x90\x49\x6E\x66\x69\x6E\x69\x74\x79\xF0\x9F\x8C\x90")
 gg.clearResults()
 end
 
+function campaign()
+    campaigns = gg.multiChoice({
+        "🌍 Complete all World levels",
+        "🏖️Complete all Quest items",
+        "🪙 infinite golds",
+        "🦸 god mode (Only campaign)"
+    }, nil, "🚩🅱️ Campaign only 🚩🅱️")
+    
+if campaigns == nil then
+        main()
+        return
+    end
+    if campaigns[1] == true then CAWL() end
+    if campaigns[2] == true then CAQL() end
+    if campaigns[3] == true then GOLDS() end
+    if campaigns[4] == true then GODS() end
+end
+
+local camps = "-366,983,272;-1,358,776,880:13"
+function CAWL()
+gg.setVisible(false)
+gg.searchNumber(camps, 4)
+gg.refineNumber("-1,358,776,880", 4)
+gg.getResults(999)
+gg.setVisible(false)
+gg.editAll("1,198,539,712", 4)
+gg.clearResults()
+gg.toast("Complete all levels ✅")
+end
+local questsx = "-1,358,711,312A;-1,929,054,131A;-20,170W:45"
+function CAQL()
+gg.setVisible(false)
+gg.searchNumber(questsx, 4)
+gg.setVisible(false)
+gg.refineNumber("-1,358,776,880", 4)
+gg.getResults(999)
+gg.setVisible(false)
+gg.editAll("1,198,539,712", 4)
+gg.clearResults()
+gg.toast("Complete all Quest levels ✅")
+end
+local goldc = "-1,358,776,880;1,073,738,160:9"
+function GOLDS()
+gg.setVisible(false)
+gg.searchNumber(goldc, 4)
+gg.setVisible(false)
+gg.refineNumber("-1,358,776,880", 4)
+gg.getResults(999)
+gg.setVisible(false)
+gg.editAll("1,198,539,712", 4)
+gg.clearResults()
+gg.toast("inf golds ✅")
+end
+local godmd = "-1,358,711,312;260,106,541;-1,962,742,483;-1,862,029,136:13"
+function GODS()
+gg.setVisible(false)
+gg.searchNumber(godmd, 4)
+gg.setVisible(false)
+gg.refineNumber("-1,358,711,312", 4)
+gg.getResults(999)
+gg.setVisible(false)
+gg.editAll("1,198,530,560", 4)
+gg.clearResults()
+gg.toast("God mode ✅")
+end
+
 function main()
     local HDmenu = gg.choice({
-        '\xF0\x9F\x92\xBE\x20\xE2\x80\xA2\x20\x41\x63\x63\x6F\x75\x6E\x74', 
-        '\xF0\x9F\x92\x89\x20\xE2\x80\xA2\x20\x48\x6F\x6F\x6B\x73\x20\x26\x20\x4E\x6F\x6E\x2D\x48\x6F\x6F\x6B\x73', 
-        '\xF0\x9F\x92\xB3\x20\xE2\x80\xA2\x20\x43\x61\x72\x64\x73', 
-        '\xF0\x9F\x97\xBA\xEF\xB8\x8F\x20\xE2\x80\xA2\x20\x4D\x61\x70\x73',
-        '\xF0\x9F\x8E\xAC\x20\xE2\x80\xA2\x20\x43\x6F\x6E\x66\x69\x67',
-        '\xF0\x9F\x94\x8E\x20\xE2\x80\xA2\x20\x43\x68\x65\x63\x6B\x65\x72',
-        '\xE2\x9D\x8C\x45\x78\x69\x74\xE2\x9D\x8C'
-    }, nil, "\x53\x63\x72\x69\x70\x74\x20\x4D\x61\x64\x65\x20\x42\x79\x20\xF0\x9F\x91\x91\x65\x64\x69\x74\x74\x65\x78\xF0\x9F\x91\x91\x20\x7B\x33\x32\x2D\x42\x69\x74\x7D\x20\x76\x35\x2E\x33\x30")
+          '💾 • Account',
+          '💉 • Hooks & Non-Hooks',
+          '💳 • Cards',
+          '🗺️ • Maps',
+          '🚩🅱️ • Campaign',
+          '🎬 • Config',
+          '🔎 • Checker (actually you dont need this 😅)',
+          '❌Exit❌',
+    }, nil, "Script Made By 👑edittex👑 {32-Bit} v5.30")
 
     if HDmenu == nil then
     end
@@ -2058,16 +2139,33 @@ function main()
     if HDmenu == 2 then hooks() end
     if HDmenu == 3 then regoins() end
     if HDmenu == 4 then tilecolor_main() end
-    if HDmenu == 5 then config() end 
-    if HDmenu == 6 then Check() end
-    if HDmenu == 7 then exits() end
+    if HDmenu == 5 then campaign() end
+    if HDmenu == 6 then config() end 
+    if HDmenu == 7 then pinScreen() end
+    if HDmenu == 8 then exits() end
     HOMEDM = -1
 end
 
-function Check()
+local correctPIN = "\"\'"
+function pinScreen()
+    while true do
+        local input = gg.prompt({"This only for Admin to check which hack is still working"}, {}, {"number"})
+        
+        if not input then
+            main()
+            return
+        end
 
+        if input[1] == correctPIN then
+            check()
+            return
+        else
+            gg.alert("Incorrect PIN. Try again.")
+        end
+    end
+end
 
-
+function check()
   gg.setRanges(gg.REGION_CODE_APP)
   gg.searchNumber(Dialog_offset, gg.TYPE_BYTE)
   gg.setVisible(false)
@@ -2521,11 +2619,56 @@ function Check()
   if gg.getResultsCount() > 0 then
     Cursess = Cursess + 1
   end
-  gg.toast("%100")
   gg.clearResults()
   
+  gg.searchNumber(tasks, gg.TYPE_DWORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    taskz = "✅"
+  else
+    taskz = "❌"
+  end
+  gg.clearResults()
   
-  gg.alert("Working = ✅     |     Not working = ❌\nYour Bomber Friends: v".. info.versionName .."\n\nUnknown dialog: " .. Dialog_1 .. "\nBypass Password: " .. Password_1 .. "\nBypass Ads v2 ✅: " .. ABS .. "/" .. ABT .. "\nAnti-Slime" .. aslime_1 .. "\nAnti-Curse" .. acurse_1 .."\nBlackout" .. ablackout_1 .. "\nFlashbang" .. aflashbang_1 .. "\nIce bomb" .. aicebomb_1 .. "\nFashion Show ✅: " .. FSSS .. "/" .. FST .. "\nGolden Wheel spin".. goldspin_1 .. "\nLong message ✅: " .. longms .. "/" .. longmt .. "\nLong name " .. longn_1 .. "\nBypass ban ✅: " .. bypassns .. "/" .. bypassnt .. "\nDungeon Run " .. dragon_1 .. "\nInfinite Smoke " .. smoke_1 .. "\nXray v2 " .. x_ry2 .. "\nXray v1 " .. x_ry1 .. "\nStun Resistance " .. stun_1 .. "\nUndestroyable Items " .. uitem_1 .. "\nPower Bomb 0 " .. power_1 .. "\nNo Mines Found " .. mine_1 .. "\nBypass Fences " .. fence_1 .. "\nTaunt Teleport " .. taunt_1 .. "\nFast Throw " .. tfast_1 .. "\nShow Player information ✅: " .. Showmcs .. "/" .. Showmct .. "\ninvisible nuke " .. nuke_1 .. "\nAlways 0 Power Bomb" .. bombz_1 .. "\nDisable Some Curses ✅: " .. Cursess .. "/" ..Cursett,nil)
+    gg.searchNumber(camps, gg.TYPE_DWORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    campz = "✅"
+  else
+    campz = "❌"
+  end
+  gg.clearResults()
+  gg.toast("%97")
+  
+  gg.searchNumber(questsx, gg.TYPE_DWORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    quez = "✅"
+  else
+    quez = "❌"
+  end
+  gg.clearResults()
+  gg.toast("%98")
+    gg.searchNumber(goldc, gg.TYPE_DWORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    goldz = "✅"
+  else
+    goldz = "❌"
+  end
+  gg.clearResults()
+  
+    gg.searchNumber(godmd, gg.TYPE_DWORD)
+  gg.setVisible(false)
+  if gg.getResultsCount() > 0 then
+    godsz = "✅"
+  else
+    godsz = "❌"
+  end
+  gg.clearResults()
+  gg.toast("%100")
+  
+  gg.alert("Working = ✅     |     Not working = ❌\nYour Bomber Friends: v".. info.versionName .."\n\nUnknown dialog: " .. Dialog_1 .. "\nBypass Password: " .. Password_1 .. "\nBypass Ads v2 ✅: " .. ABS .. "/" .. ABT .. "\nAnti-Slime" .. aslime_1 .. "\nAnti-Curse" .. acurse_1 .."\nBlackout" .. ablackout_1 .. "\nFlashbang" .. aflashbang_1 .. "\nIce bomb" .. aicebomb_1 .. "\nFashion Show ✅: " .. FSSS .. "/" .. FST .. "\nGolden Wheel spin".. goldspin_1 .. "\nLong message ✅: " .. longms .. "/" .. longmt .. "\nLong name " .. longn_1 .. "\nBypass ban ✅: " .. bypassns .. "/" .. bypassnt .. "\nDungeon Run " .. dragon_1 .. "\nInfinite Smoke " .. smoke_1 .. "\nXray v2 " .. x_ry2 .. "\nXray v1 " .. x_ry1 .. "\nStun Resistance " .. stun_1 .. "\nUndestroyable Items " .. uitem_1 .. "\nPower Bomb 0 " .. power_1 .. "\nNo Mines Found " .. mine_1 .. "\nBypass Fences " .. fence_1 .. "\nTaunt Teleport " .. taunt_1 .. "\nFast Throw " .. tfast_1 .. "\nShow Player information ✅: " .. Showmcs .. "/" .. Showmct .. "\ninvisible nuke " .. nuke_1 .. "\nAlways 0 Power Bomb" .. bombz_1 .. "\nDisable Some Curses ✅: " .. Cursess .. "/" ..Cursett.. "\ndaily task " .. taskz .. "\nComplete Campaign " .. campz .. "\nComplete Quest " .. quez .. "\nInf Golds " .. goldz .. "\nCampaign godmode ".. godsz,nil)
 end
 
 
